@@ -1,1 +1,9 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-8d59dc4de5201274e310e4c54b9627a8934c3b88527886e3b421487c677d23eb.svg)](https://classroom.github.com/a/enf2qyfT)
+# COSC 360 Project - BlogAlert!
+
+## Client-Side Experience
+At the end of the client-side experience milestone, our team has the following accomplished:
+- layout document
+- site map
+- logic process
+- design and styling of all pages, including static mockups and examples
+- client-side validation plan of action

@@ -1,0 +1,28 @@
+body{
+    background-color: #FFFCF7;
+
+}
+
+h1{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 500%;
+    margin-left: 30%;
+    margin-top:10%;
+    color: #738290;
+
+}
+
+.login{
+    background-color: #E4F0D0;
+    size: 300%;
+}
+
+.signup{
+    background-color: #C2D8B9;
+  
+}
+
+button{
+    display: flex;
+    margin-left: 45%;
+}
