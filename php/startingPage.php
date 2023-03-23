@@ -15,48 +15,60 @@
         margin-top: 2.5em;
         justify-content: center;
         align-items: center;
-        margin-bottom: 0.4em;
+        margin-bottom: 0em;
     }
 
     .login{
         background-color: #E4F0D0;
         font-family:Georgia, 'Times New Roman', Times, serif;
+        color: #515c66;
+        font-weight: bold;
+
+
     }
 
     .signup{
         background-color: #C2D8B9;
         font-family:Georgia, 'Times New Roman', Times, serif;
+        color: #515c66;
+        font-weight: bold;
+
     }
 
-    .button{
-        display: flex;
+    button{
+        display: block;
         justify-content: space-evenly;
-        text-align: center;
         width: 400px;
         padding: 1em;
         height: 70px;
         margin: auto;
-        border-radius: 10px;
+        border-radius: 30px;
         border-width: 0em;
-        
-}
+        font-size: 145%;
 
+
+    }
+    .buttonMaster{
+        padding-top: 1em;
+    }
 
     </style>
 
-
-    
-
    <head>
-     <h1>blogalert! </h1> 
+     <h1>blogalert!</h1> 
    </head>
    <body>
-        <div class = "button">
-      <button type = "button" class = "login">log in</button> 
+    
+      <div class ="buttonMaster"> 
+      <button type = "button" class = "login" >log in</button> 
+      </div>
+      <div class = "buttonMaster">
+      <button type = "button" class = "signup">sign up </button>
+      </div>
+
       <br>
-      <button type = "button" class = "signup">signup </button>
-      <br>
-</div>
       <a href="#"> i think im good...</a>
+
+
    </body>
 </html>
