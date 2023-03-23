@@ -56,17 +56,14 @@ input{
 
 .submit{
     display: block;
-        justify-content: space-evenly;
-        width: 400px;
-        padding: 1em;
-        height: 70px;
-        margin: auto;
-        border-radius: 30px;
-        border-width: 0em;
-        font-size: 145%;
+    text-align: center;
+    box-sizing: border-box;
+        width: 100%;
+        border-radius: 40px;
+        padding: 20px;
+        border-radius: 40px;
+        font-size: 145%; 
         transition-duration: 0.4s;
-        padding-left:30px;
-    padding-right: 30px;
       
     } 
     .submit:hover{

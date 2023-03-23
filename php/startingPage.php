@@ -93,7 +93,7 @@
       <br>
       <button type = "button" class = "signup"onclick = "window.location.href = 'signup.php'" >signup </button>
       <br>
-      <a href="#" class = "imgood"> i think im good...</a>
+      <a href="trending.php" class = "imgood"> i think im good...</a>
 
 
    </body>
