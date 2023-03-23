@@ -15,7 +15,7 @@
         margin-top: 2.5em;
         justify-content: center;
         align-items: center;
-        margin-bottom: 0em;
+        margin-bottom: 0.3em;
     }
 
     .login{
@@ -59,7 +59,7 @@
    </head>
    <body>
         <div class = "button">
-      <button type = "button" class = "login">log in</button> 
+      <button type = "button" class = "login" onclick = "window.location.href = 'login.php'" >log in</button> 
       <br>
       <button type = "button" class = "signup">signup </button>
       <br>
