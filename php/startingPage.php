@@ -3,33 +3,42 @@
     <link rel="stylesheet" href="html/css/main.css">
     
     <style>
-        body{
-    background-color: #FFFCF7;
+    body{
+        background-color: #FFFCF7;
+    }
 
-}
+    h1{
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size: 500%;
+        color: #738290;
+        display: flex;
+        margin-top: 2.5em;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0.4em;
+    }
 
-h1{
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size: 500%;
-    margin-left: 30%;
-    margin-top:10%;
-    color: #738290;
+    .login{
+        background-color: #E4F0D0;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
 
-}
+    .signup{
+        background-color: #C2D8B9;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
 
-.login{
-    background-color: #E4F0D0;
-    size: 300%;
-}
-
-.signup{
-    background-color: #C2D8B9;
-  
-}
-
-button{
-    display: flex;
-    margin-left: 45%;
+    .button{
+        display: flex;
+        justify-content: space-evenly;
+        text-align: center;
+        width: 400px;
+        padding: 1em;
+        height: 70px;
+        margin: auto;
+        border-radius: 10px;
+        border-width: 0em;
+        
 }
 
 
@@ -42,10 +51,12 @@ button{
      <h1>blogalert! </h1> 
    </head>
    <body>
+        <div class = "button">
       <button type = "button" class = "login">log in</button> 
       <br>
       <button type = "button" class = "signup">signup </button>
       <br>
+</div>
       <a href="#"> i think im good...</a>
    </body>
 </html>
