@@ -17,8 +17,8 @@
         align-items: center;
         margin-bottom: 0.3em;
         padding-bottom: 0.1em;
+  
     }
-
     .login{
         background-color: #E4F0D0;
         font-family:Georgia, 'Times New Roman', Times, serif;
@@ -91,7 +91,7 @@
         <div class = "button">
       <button type = "button" class = "login" onclick = "window.location.href = 'login.php'" >log in</button> 
       <br>
-      <button type = "button" class = "signup">signup </button>
+      <button type = "button" class = "signup"onclick = "window.location.href = 'signup.php'" >signup </button>
       <br>
       <a href="#" class = "imgood"> i think im good...</a>
 

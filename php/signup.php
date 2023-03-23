@@ -27,9 +27,8 @@ h1{
  
 }
 
-
 form{
-    background-color: #E4F0D0;
+    background-color: #C2D8B9;
         font-family:Georgia, 'Times New Roman', Times, serif;
         color: #515c66;
         font-weight: bold;
@@ -74,6 +73,7 @@ input{
         color: #FFFCF7;
         cursor: pointer ;
     }
+
 }
 </style>
 <body>
@@ -133,8 +133,9 @@ if ($stmt->execute()) {
  
    <input type="text" class="password" name="password" placeholder = "password"required><br>
    <br>
-<br>
-   <input type="submit" class="submit" value="log in!">
+   <input type="text" class="email" name="email" placeholder = "email"required><br>
+   <br>
+   <input type="submit" class="submit" value="sign up!">
 </form>
 
 
