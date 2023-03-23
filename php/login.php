@@ -53,6 +53,7 @@ input{
     font-size: 130%;
     display: block;
     padding:20px;
+    border: 0em;
 }
 
 .submit{
