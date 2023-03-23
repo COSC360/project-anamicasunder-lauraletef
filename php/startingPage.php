@@ -52,7 +52,7 @@
    </head>
    <body>
         <div class = "button">
-      <button type = "button" class = "login">log in</button> 
+      <button type = "button" class = "login" onclick = "window.location.href = 'login.php'">log in</button> 
       <br>
       <button type = "button" class = "signup">signup </button>
       <br>
