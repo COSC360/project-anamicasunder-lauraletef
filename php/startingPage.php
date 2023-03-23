@@ -58,14 +58,10 @@
      <h1>blogalert!</h1> 
    </head>
    <body>
-    
-      <div class ="buttonMaster"> 
-      <button type = "button" class = "login" >log in</button> 
-      </div>
-      <div class = "buttonMaster">
-      <button type = "button" class = "signup">sign up </button>
-      </div>
-
+        <div class = "button">
+      <button type = "button" class = "login">log in</button> 
+      <br>
+      <button type = "button" class = "signup">signup </button>
       <br>
       <a href="#"> i think im good...</a>
 
