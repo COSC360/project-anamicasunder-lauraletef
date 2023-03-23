@@ -16,6 +16,7 @@
         justify-content: center;
         align-items: center;
         margin-bottom: 0.3em;
+        padding-bottom: 0.1em;
     }
 
     .login{
@@ -23,6 +24,7 @@
         font-family:Georgia, 'Times New Roman', Times, serif;
         color: #515c66;
         font-weight: bold;
+        transition-duration: 0.4s;
 
 
     }
@@ -32,6 +34,7 @@
         font-family:Georgia, 'Times New Roman', Times, serif;
         color: #515c66;
         font-weight: bold;
+        transition-duration: 0.4s;
 
     }
 
@@ -45,8 +48,35 @@
         border-radius: 30px;
         border-width: 0em;
         font-size: 145%;
+    }
 
+    .login:hover{
+        background-color: #767d6b;
+        color: #FFFCF7;
+        cursor: pointer ;
+    }
 
+    .signup:hover{
+        background-color: #767d6b;
+        color: #FFFCF7;
+        cursor: pointer ;
+    }
+
+    .imgood:hover{
+        color: #8d9e86;
+        cursor: pointer ;
+    }
+
+    .imgood{
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        color: #515c66;
+        font-weight: bold;
+        font-size: 135%;
+        display: flex;
+        padding-top: 1em;
+        justify-content: center;
+        align-items: center;
+        transition-duration: 0.4s;
     }
     .buttonMaster{
         padding-top: 1em;
@@ -63,7 +93,7 @@
       <br>
       <button type = "button" class = "signup">signup </button>
       <br>
-      <a href="#"> i think im good...</a>
+      <a href="#" class = "imgood"> i think im good...</a>
 
 
    </body>
