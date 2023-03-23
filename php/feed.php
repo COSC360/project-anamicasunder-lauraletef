@@ -8,10 +8,12 @@
         <a href = "feed.php">feed</a> 
         <a href = "trending.php">trending</a> 
         <a href = "profile.php">profile</a> 
-        <a href = "startingPage.php">settings</a>
-</nav>
-     
+        <a href = "settings.php">settings</a>
+    </nav>
+</head>
 
+     
+<body>
      <div class = "blogposts">
         <div>
             <p class="blog">blog entry 1</p>    
@@ -36,7 +38,8 @@
         </div> -->
 
     </div>
-   </head>
+</body>
+
 <style>
 
     body{

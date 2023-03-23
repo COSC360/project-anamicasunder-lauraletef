@@ -91,7 +91,7 @@
         <div class = "button">
       <button type = "button" class = "login" onclick = "window.location.href = 'login.php'" >log in</button> 
       <br>
-      <button type = "button" class = "signup"onclick = "window.location.href = 'signup.php'" >signup </button>
+      <button type = "button" class = "signup"onclick = "window.location.href = 'signup.php'" >sign up </button>
       <br>
       <a href="trending.php" class = "imgood"> i think im good...</a>
 
