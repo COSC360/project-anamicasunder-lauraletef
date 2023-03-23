@@ -72,7 +72,7 @@ input{
         cursor: pointer ;
     }
 
-}
+
 </style>
 <body>
 
