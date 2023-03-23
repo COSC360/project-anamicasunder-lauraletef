@@ -19,7 +19,8 @@ h1{
         font-size: 500%;
         color: #738290;
         display: flex;
-        margin-top: 2.5em;
+        position: center;
+        margin-top:1.5em;
         justify-content: center;
         align-items: center;
         margin-bottom: 0.3em;

@@ -7,7 +7,7 @@
         <a href = "feed.php">feed</a> 
         <a href = "trending.php">trending</a> 
         <a href = "profile.php">profile</a> 
-        <a href = "settings.php">settings</a> 
+        <a href = "startingPage.php">settings</a>
 </nav>
 
      <div class = "blogposts">
