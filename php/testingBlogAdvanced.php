@@ -24,10 +24,11 @@ if (isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
         $post = $_POST['post'];
         $date_posted = $_POST['date_posted'];
+        $post_id = rand(); 
         $comments = $_POST['comments'];
 
         // Insert the new post into the database
-        $sql = "INSERT INTO blogpost (username, firstName, post, date_posted) VALUES ('$username', '$firstName', '$post', NOW())";
+        $sql = "INSERT INTO blogpost (post_id, username, firstName, post, date_posted) VALUES ('$post_id', '$username', '$firstName', '$post', NOW())";
         if ($conn->query($sql) === TRUE) {
             echo "<p>Post added successfully.</p>";
         } else {
@@ -65,14 +66,15 @@ if (isset($_SESSION['username'])) {
             <input type="submit" name="submit" value="Add Comment">
           </form>';
 
-            // Check if the form to add a new post was submitted
+            // Check if the form to add a new comment was submitted
         if (isset($_POST['submit'])) {
         // Get the submitted post data
         $username = $_SESSION['username'];
+        $post_id = $_SESSION['post_id'];
         $comments = $_POST['comments'];
 
         // Insert the new post into the database
-        $sql = "INSERT INTO blogpost (comments) VALUES ('$comments')";
+        $sql = "UPDATE blogpost SET comments='$comments' WHERE post_id=$post_id";
         if ($conn->query($sql) === TRUE) {
             echo "<p>Comment added successfully.</p>";
         } else {
