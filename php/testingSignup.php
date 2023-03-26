@@ -56,4 +56,4 @@ if (isset($_POST['signup'])) {
 if (isset($error)) {
     echo "<p>$error</p>";
 }
-?
+?>
