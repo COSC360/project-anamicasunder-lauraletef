@@ -27,7 +27,7 @@ if (isset($_SESSION['username'])) {
         $comments = $_POST['comments'];
 
         // Insert the new post into the database
-        $sql = "INSERT INTO blogpost (username, firstName, post, date_posted, comments) VALUES ('$username', '$firstName', '$post', NOW(), '$comments')";
+        $sql = "INSERT INTO blogpost (username, firstName, post, date_posted) VALUES ('$username', '$firstName', '$post', NOW())";
         if ($conn->query($sql) === TRUE) {
             echo "<p>Post added successfully.</p>";
         } else {
@@ -63,6 +63,22 @@ if (isset($_SESSION['username'])) {
 
             <input type="submit" name="submit" value="Add Comment">
           </form>';
+
+            // Check if the form to add a new post was submitted
+        if (isset($_POST['submit'])) {
+        // Get the submitted post data
+        $username = $_SESSION['username'];
+        $comments = $_POST['comments'];
+
+        // Insert the new post into the database
+        $sql = "INSERT INTO blogpost (comments) VALUES ('$comments')";
+        if ($conn->query($sql) === TRUE) {
+            echo "<p>Comment added successfully.</p>";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+        }
+
             echo "<hr>";
             echo "<p>"Comments:"</p>";
             echo "<p>" . $row['comments'] . "</p>";
