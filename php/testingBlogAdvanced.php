@@ -65,7 +65,7 @@ if (isset($_SESSION['username'])) {
 
             <input type="submit" name="submit" value="Add Comment">
           </form>';
-
+        }
             // Check if the form to add a new comment was submitted
             if (isset($_POST['submit'])) {
                 // Get the submitted post data
@@ -92,7 +92,7 @@ if (isset($_SESSION['username'])) {
                 while ($row = $result->fetch_assoc()) {
                  echo "<p>" . $row['content'] . "</p>";
                  }
-}            else {
+} }           else {
                 echo "<p>No comments yet.</p>";
 
 }
@@ -101,7 +101,7 @@ if (isset($_SESSION['username'])) {
         echo "No posts found.";
     }
 
-
+    }
 // Close the database connection
 $conn->close();
 ?>
