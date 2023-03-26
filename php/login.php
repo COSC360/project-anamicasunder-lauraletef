@@ -76,66 +76,64 @@ input{
 
 </style>
 <body>
-
+</html>
 <?php
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-   $login = $_POST["login"];
-   $password = $_POST["password"];
 
-   $servername = "localhost";
-   $username_db = "laura";
-   $password_db = "laura";
-   $dbname = "project";
-   $conn = new mysqli($servername, $username_db, $password_db, $dbname);
-   // Check connection
-   if ($conn->connect_error) {
-       die("Connection failed: " . $conn->connect_error);
-   }
+// Set up MySQL database connection
+$servername = "localhost";
+$username = "24466963";
+$password = "24466963";
+$dbname = "db_24466963";
 
+$conn = new mysql($servername, $username, $password, $dbname);
 
-// Prepared stmnt
-$stmt = $conn->prepare("SELECT * FROM users WHERE (email = ? OR username = ?) AND password = ?");
-$stmt->bind_param("sss", $login, $login, $password);
-
-// Execute SQL and error check
-if ($stmt->execute()) {
-    $result = $stmt->get_result();
-    if ($result->num_rows == 1) { //just check if an entry exists for given credentials
-        //I think this saves their id to the session so you can confirm they're logged in still on other pages. 
-        // $row = $result->fetch_assoc(); 
-        // $username = $row['username'];
-        // $_SESSION['username'] = $username;
-        // $isAdmin = $row['isAdmin'];
-        // if($isAdmin == 1){
-        //     $_SESSION['isAdmin'] = True;
-        // }
-        // change link to homepage when ready
-        header("Location: startingPage.php");
-        exit;
-    } else {
-        $pwerror = "Incorrect username or password";
-    }
-} else {
-    echo "Error: " . $stmt->error;
+// Check if there was an error connecting to the database
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
+// Check if the user submitted the login form
+if (isset($_POST['login'])) {
+    // Get the submitted username and password
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
- }
- ?>
+    // Query the database to check if the user exists
+    $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // User exists, log them in
+        session_start();
+        $_SESSION['username'] = $username;
+        header("ur are logged in");
+        exit;
+    } else {
+        // User doesn't exist, show an error message
+        $error = "Invalid login credentials. Please try again.";
+    }
+}
+?>
 
 
-<form method="POST" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-   
+<form method="post"  action = "">
 
-   <input type="text" class="username" name="login" placeholder="username"required><br><br>
-   
+
+<input type="text" class="username" name="login" placeholder="username"required><br><br>
+
  
-   <input type="text" class="password" name="password" placeholder = "password"required><br>
-   <br>
+<input type="text" class="password" name="password" placeholder = "password"required><br>
 <br>
-   <input type="submit" class="submit" value="log in!">
+<br>
+<input type="submit" class="submit" value="log in!">
 </form>
 
+<?php
+// Display error message if there was a login error
+if (isset($error)) {
+    echo "<p>$error</p>";
+}
+?> 
 
-</body>
-</html>
+
+ 

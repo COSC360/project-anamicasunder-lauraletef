@@ -1,16 +1,3 @@
-<?php
-include 'db.php';
-
-if($db->connect_error){
-die("Connection failed");
-}
-else{
-echo("hello");
-}
-?>
-
-
-
 
 <!DOCTYPE html>
 <html>
