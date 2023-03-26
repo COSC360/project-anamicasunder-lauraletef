@@ -22,7 +22,6 @@ if (isset($_SESSION['username'])) {
     if (isset($_POST['submit'])) {
         // Get the submitted post data
         $username = $_SESSION['username'];
-        $firstName = $_SESSION['firstName'];
         $post = $_POST['post'];
         $date_posted = $_POST['date_posted'];
 
@@ -53,7 +52,7 @@ if (isset($_SESSION['username'])) {
     if ($result->num_rows > 0) {
         // Display all the posts in the database
         while ($row = $result->fetch_assoc()) {
-            echo "<h2>" . $row['firstName'] . "</h2>";
+            echo "<h2>" . $row['username'] . "</h2>";
             echo "<p>" . $row['post'] . "</p>";
             echo "<p>" . $row['date_posted'] . "</p>";
             echo "<hr>";
