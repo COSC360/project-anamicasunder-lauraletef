@@ -57,7 +57,7 @@ if (isset($_SESSION['username'])) {
             echo "<h2>" . $row['username'] . "</h2>";
             echo "<p>" . $row['post'] . "</p>";
             echo "<p>" . $row['date_posted'] . "</p>";
-            echo "<p>" . $row['comments'] . "</p>";
+
             echo '<form method="post" action="">
 
             <label for="post">Add a Comment:</label>
@@ -67,21 +67,37 @@ if (isset($_SESSION['username'])) {
           </form>';
 
             // Check if the form to add a new comment was submitted
-        if (isset($_POST['submit'])) {
-        // Get the submitted post data
-        $username = $_SESSION['username'];
-        $post_id = $_SESSION['post_id'];
-        $comments = $_POST['comments'];
+            if (isset($_POST['submit'])) {
+                // Get the submitted post data
+                $username = $_SESSION['username'];
+                $content = $_POST['content']
+                $post_id = $_SESSION['post_id']
+        
+                // Insert the new comment into the database
+                $sql = "INSERT INTO comments (post_id, username, content) VALUES ('$post_id', '$username', '$content')";
+                if ($conn->query($sql) === TRUE) {
+                    echo "<p>Comment added successfully.</p>";
+                } else {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            }
+        
+            // Display the form to add a new post
+            // Get the comments for the post
+            $sql = "SELECT * FROM comments WHERE post_id = $post_id";
+            $result = $conn->query($sql);
 
-        // Insert the new post into the database
-        $sql = "UPDATE blogpost SET comments='$comments' WHERE post_id='$post_id'";
-        if ($conn->query($sql) === TRUE) {
-            echo "<p>Comment added successfully.</p>";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-        }
+            if ($result->num_rows > 0) {
+                // Loop through the comments and display them
+                while ($row = $result->fetch_assoc()) {
+                 echo "<p>" . $row['content'] . "</p>";
     }
+} else {
+    echo "<p>No comments yet.</p>";
+}
+        
+        } else {}
+    
         
     } else {
         echo "No posts found.";
