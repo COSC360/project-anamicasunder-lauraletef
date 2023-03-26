@@ -44,7 +44,8 @@ if (isset($_SESSION['username'])) {
             <input type="submit" name="submit" value="Add Post">
           </form>';
 
-} else {
+} else {}
+
     // User is not logged in, display all the posts in the database
     $sql = "SELECT * FROM blogpost";
     $result = $conn->query($sql);
@@ -60,7 +61,7 @@ if (isset($_SESSION['username'])) {
     } else {
         echo "No posts found.";
     }
-}
+
 
 // Close the database connection
 $conn->close();
