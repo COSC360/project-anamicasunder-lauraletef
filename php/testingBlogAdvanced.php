@@ -70,8 +70,8 @@ if (isset($_SESSION['username'])) {
             if (isset($_POST['submit'])) {
                 // Get the submitted post data
                 $username = $_SESSION['username'];
-                $content = $_POST['content']
-                $post_id = $_SESSION['post_id']
+                $content = $_POST['content'];
+                $post_id = $_SESSION['post_id'];
         
                 // Insert the new comment into the database
                 $sql = "INSERT INTO comments (post_id, username, content) VALUES ('$post_id', '$username', '$content')";
@@ -80,7 +80,7 @@ if (isset($_SESSION['username'])) {
                 } else {
                     echo "Error: " . $sql . "<br>" . $conn->error;
                 }
-            }
+            
         
             // Display the form to add a new post
             // Get the comments for the post
@@ -91,15 +91,13 @@ if (isset($_SESSION['username'])) {
                 // Loop through the comments and display them
                 while ($row = $result->fetch_assoc()) {
                  echo "<p>" . $row['content'] . "</p>";
-    }
-} else {
-    echo "<p>No comments yet.</p>";
+                 }
+}            else {
+                echo "<p>No comments yet.</p>";
+
 }
         
-        } else {}
-    
-        
-    } else {
+     else {
         echo "No posts found.";
     }
 
