@@ -26,7 +26,7 @@ if (isset($_POST['login'])) {
         // User exists, log them in
         session_start();
         $_SESSION['username'] = $username;
-        header("Location: feed.php");
+        header("Location: testingFeed.php");
         exit;
     } else {
         // User doesn't exist, show an error message
