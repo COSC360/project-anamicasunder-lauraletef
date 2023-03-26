@@ -79,7 +79,7 @@ if (isset($_SESSION['username'])) {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
         }
-
+    }
         
     } else {
         echo "No posts found.";
