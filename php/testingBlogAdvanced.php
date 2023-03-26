@@ -24,6 +24,7 @@ if (isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
         $post = $_POST['post'];
         $date_posted = $_POST['date_posted'];
+        $comments = $_POST['comments'];
 
         // Insert the new post into the database
         $sql = "INSERT INTO blogpost (username, firstName, post, date_posted) VALUES ('$username', '$firstName', '$post', NOW())";
@@ -55,6 +56,13 @@ if (isset($_SESSION['username'])) {
             echo "<h2>" . $row['username'] . "</h2>";
             echo "<p>" . $row['post'] . "</p>";
             echo "<p>" . $row['date_posted'] . "</p>";
+            echo '<form method="post" action="">
+
+            <label for="post">Add a Comment:</label>
+            <textarea name="comments" id="comments"></textarea><br><br>
+
+            <input type="submit" name="submit" value="Add Comment">
+          </form>';
             echo "<hr>";
         }
     } else {
