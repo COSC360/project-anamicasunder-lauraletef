@@ -56,6 +56,7 @@ if (isset($_SESSION['username'])) {
             echo "<h2>" . $row['username'] . "</h2>";
             echo "<p>" . $row['post'] . "</p>";
             echo "<p>" . $row['date_posted'] . "</p>";
+            echo "<p>" . $row['comments'] . "</p>";
             echo '<form method="post" action="">
 
             <label for="post">Add a Comment:</label>
@@ -79,10 +80,7 @@ if (isset($_SESSION['username'])) {
         }
         }
 
-            echo "<hr>";
-            echo "<p>Comments:</p>";
-            echo "<p>" . $row['comments'] . "</p>";
-        }
+        
     } else {
         echo "No posts found.";
     }
