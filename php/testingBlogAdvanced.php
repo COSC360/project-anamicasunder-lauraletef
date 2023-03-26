@@ -80,7 +80,7 @@ if (isset($_SESSION['username'])) {
         }
 
             echo "<hr>";
-            echo "<p>"Comments:"</p>";
+            echo "<p>Comments:</p>";
             echo "<p>" . $row['comments'] . "</p>";
         }
     } else {
