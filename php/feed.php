@@ -3,6 +3,10 @@
 <head>
      <h1>blogalert!</h1>
      <h2> feed </h2> 
+     <button type = "button" class = "post" onclick = "window.location.href = 'login.php'" >post!</button> 
+      <br>
+      <button type = "button" class = "logout" onclick = "window.location.href = 'startingPage.php'" >logout</button> 
+
 
      <nav>
         <a href = "feed.php">feed</a> 
@@ -110,6 +114,28 @@
     nav a:hover{
         color: #c3cfb0;
         cursor: pointer ;
+    }
+    
+    .post{
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size: 150%;
+        color: #738290;
+        margin-top:-3.5em;
+        float:right;
+        margin-right:6em;
+        border-radius: 40px;
+        padding: 10px;
+    }
+    .logout{
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size: 150%;
+        color: #738290;
+        margin-top:-4.2em;
+        float:right;
+        margin-right:2em;
+        border-radius: 40px;
+       padding: 10px;
+      
     }
     
     
