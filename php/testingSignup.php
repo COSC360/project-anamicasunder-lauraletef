@@ -17,7 +17,7 @@ if (isset($_POST['signup'])) {
     // Get the submitted username and password
     $username = $_POST['username'];
     $firstName = $_POST['firstName'];
-    $lasttName = $_POST['lastName'];
+    $lastName = $_POST['lastName'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 

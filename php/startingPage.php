@@ -90,9 +90,9 @@
    </head>
    <body>
         <div class = "button">
-      <button type = "button" class = "login" onclick = "window.location.href = 'login.php'" >log in</button> 
+      <button type = "button" class = "login" onclick = "window.location.href = 'testingLogin.php'" >log in</button> 
       <br>
-      <button type = "button" class = "signup"onclick = "window.location.href = 'signup.php'" >sign up </button>
+      <button type = "button" class = "signup"onclick = "window.location.href = 'testingSignup.php'" >sign up </button>
       <br>
       <a href="trending.php" class = "imgood"> i think im good...</a>
 
