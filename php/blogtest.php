@@ -60,7 +60,7 @@ if (isset($_SESSION['username'])) {
          </form>';
 
 
-} else {
+} else {}
    // User is not logged in, display all the posts in the database or search results
    $sql = "SELECT * FROM blogpost";
    $search_keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
@@ -83,7 +83,7 @@ if (isset($_SESSION['username'])) {
    } else {
        echo "No posts found.";
    }
-}
+
 
 
 // Close the database connection
