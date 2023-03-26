@@ -73,7 +73,7 @@ input{
         color: #FFFCF7;
         cursor: pointer ;
     }
-}
+
 </style>
 <body>
 

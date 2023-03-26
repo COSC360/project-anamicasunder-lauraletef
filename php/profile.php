@@ -2,44 +2,20 @@
 <html>
 <head>
      <h1>blogalert!</h1>
-     <h2> trending </h2> 
+     <h2> profile </h2> 
      <nav>
         <a href = "feed.php">feed</a> 
         <a href = "trending.php">trending</a> 
         <a href = "profile.php">profile</a> 
         <a href = "settings.php">settings</a>
 </nav>
-<head>
+</head>
 
-<body>
 
-     <div class = "blogposts">
-        <div>
-            <p class="blog">blog entry 1</p>    
-        </div>
-        <div>
-            <p class="blog">blog entry 2</p>  
-        </div>
-        <div>
-            <p class="blog">blog entry 3</p>  
-        </div>
-        <div>
-            <p class="blog">blog entry 4</p>  
-        </div>
+     <div class = "profile">
+            <p>profile</p>    
     </div>
-
-    <div class = "comments">
-        <div>
-            <p class="comment" id="first">COMMENTS HERE</p>
-        </div>
-        <!-- <div>
-            <p class="comment" id="second">COMMENTS HERE</p>
-        </div> -->
-
-    </div>
-
-</body>
-
+            
 <style>
 
     body{
@@ -59,7 +35,7 @@
     h2{
     font-family:Georgia, 'Times New Roman', Times, serif;
         font-size: 200%;
-        color: #A1B5D8;
+        color: #738290;
         margin-left:13.5em;
         margin-top:-2.4em;
     }
@@ -69,7 +45,6 @@
         color: #738290;
         margin-top:-2.4em;
         float:right;
-        overflow: auto;
         margin-right:2em;
     }
     nav a{
@@ -80,38 +55,22 @@
         color: #A1B5D8;
         cursor: pointer ;
     }
-    .blog{
-    font-family Georgia;
-    background-color: #738290;
-    color: #FFFCF7;
-    text-align: center;
-    width: 50%;
-    border-radius: 50px;
-    font-size: 130%;
-    display: block;
-    padding:20px;
-    border: 2em;
-    float:left;
-    margin-left: 3em;
-    margin-top: 3em;
-    padding-bottom: 120px;
-    }
-    .comment{
+    .profile{
+    position: absolute;
+    top: 20%;
+    left: 15%;
     font-family Georgia;
     background-color: #A1B5D8;
     color: #FFFCF7;
     text-align: center;
-    width: 30%;
-    border-radius: 50px;
+    width: 70%;
+    border-radius: 30px;
     font-size: 130%;
     display: block;
     padding:20px;
-    border: 2em;
-    float:right;
-    margin-right: 3em;
-    margin-top: 3em;
-    padding-bottom: 120px;
-    vertical-align:top;
+    align-items: center;
+    height: 55%;
+    justify-content: center;
     }
     
     
