@@ -27,7 +27,7 @@ if (isset($_SESSION['username'])) {
         $comments = $_POST['comments'];
 
         // Insert the new post into the database
-        $sql = "INSERT INTO blogpost (username, firstName, post, date_posted) VALUES ('$username', '$firstName', '$post', NOW())";
+        $sql = "INSERT INTO blogpost (username, firstName, post, date_posted, comments) VALUES ('$username', '$firstName', '$post', NOW(), '$comments')";
         if ($conn->query($sql) === TRUE) {
             echo "<p>Post added successfully.</p>";
         } else {
