@@ -64,6 +64,8 @@ if (isset($_SESSION['username'])) {
             <input type="submit" name="submit" value="Add Comment">
           </form>';
             echo "<hr>";
+            echo "<p>"Comments:"</p>";
+            echo "<p>" . $row['comments'] . "</p>";
         }
     } else {
         echo "No posts found.";
