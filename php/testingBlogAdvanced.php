@@ -74,7 +74,7 @@ if (isset($_SESSION['username'])) {
         $comments = $_POST['comments'];
 
         // Insert the new post into the database
-        $sql = "UPDATE blogpost SET comments='$comments' WHERE post_id=$post_id";
+        $sql = "UPDATE blogpost SET comments='$comments' WHERE post_id='$post_id'";
         if ($conn->query($sql) === TRUE) {
             echo "<p>Comment added successfully.</p>";
         } else {
