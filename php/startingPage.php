@@ -1,3 +1,17 @@
+<?php
+include 'db.php';
+
+if($db->connect_error){
+die("Connection failed");
+}
+else{
+echo("hello");
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html>
     <link rel="stylesheet" href="html/css/main.css">
