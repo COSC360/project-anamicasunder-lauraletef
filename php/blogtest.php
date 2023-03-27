@@ -107,13 +107,6 @@ if (isset($_SESSION['username'])) {
     $comment = $_POST['comment'];
     $date_posted = date('Y-m-d H:i:s');
 
-    // Insert the new comment into the database
-$sql = "INSERT INTO comments (post_id, username, comment, date_posted) VALUES ('$post_id', '$username', '$comment', '$date_posted')";
-if ($conn->query($sql) === TRUE) {
-    echo "<p>Comment added successfully.</p>";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
 
 }
 
