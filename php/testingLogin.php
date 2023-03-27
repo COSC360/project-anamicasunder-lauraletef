@@ -21,10 +21,10 @@ if ($conn->connect_error) {
 // Check if the user is logged in
 if (isset($_SESSION['username'])) {
     echo "Welcome, " . $_SESSION['username'] . "! You are already logged in.";
-         if(isset($_SESSION['username']) == 'coscadmin'){
-             boolean admin = true;
-            }
-            else{
+        //  if(isset($_SESSION['username']) == 'coscadmin'){
+        //      boolean admin = true;
+        //     }
+           
 
             
     
@@ -85,7 +85,7 @@ if (isset($_SESSION['username'])) {
     if (isset($error)) {
         echo "<p>$error</p>";
     }
-}
+
 ?>
 
 <style>
