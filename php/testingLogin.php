@@ -1,3 +1,6 @@
+<head>
+     <h1>blogalert!</h1> 
+   </head>
 <?php
 
 session_start();
@@ -77,3 +80,77 @@ if (isset($_SESSION['username'])) {
     }
 }
 ?>
+
+<style>
+    body{
+    background-color: #FFFCF7;
+
+}
+form input[type="text"] {
+  display: block;
+ 
+}
+
+h1{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size: 500%;
+        color: #738290;
+        display: flex;
+        position: center;
+        margin-top:1.5em;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0.3em;
+        padding-bottom: 0.1em;
+ 
+}
+
+
+form{
+    background-color: #E4F0D0;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        color: #515c66;
+        font-weight: bold;
+        justify-content: center;
+        text-align: center;
+        display: block; 
+        margin-left: 30%;
+        margin-right: 30%;
+        padding:2em;
+        border-radius: 30px;
+}
+input{
+    font-family:Georgia;
+    background-color:  #FFFCF7;
+    color: #515c66;
+    text-align: center;
+    width: 100%;
+    border-radius: 40px;
+    box-sizing: border-box;
+    font-size: 130%;
+    display: block;
+    padding:20px;
+    border: 0em;
+}
+
+.submit{
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+        width: 100%;
+        border-radius: 40px;
+        padding: 20px;
+        border-radius: 40px;
+        font-size: 145%; 
+        transition-duration: 0.4s;
+      
+    } 
+    .submit:hover{
+        background-color: #767d6b;
+        color: #FFFCF7;
+        cursor: pointer ;
+    }
+
+    
+    </style>
+
