@@ -1,3 +1,11 @@
+<nav>
+        <a href = "blogtest.php">feed</a>
+        <a href = "profilePage.php">edit profile</a> 
+        <a href = "admin.php">ADMIN ONLY</a> 
+
+    </nav>
+
+
 <?php
 // Connect to the database
 $servername = "localhost";
