@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 
 // Check if the user is an admin
 session_start();
-if(!isset($_SESSION['username']) && $_SESSION['isAdmin'] != 1) {
+if(!isset($_SESSION['username']) || $row["isAdmin"] != 1) {
    echo "You're not an admin lol";
 } 
 
