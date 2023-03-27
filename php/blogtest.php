@@ -31,7 +31,7 @@ if (isset($_SESSION['username'])) {
         $post_id = uniqid(); // Generate random post ID
 
         // Insert the new post into the database
-        $sql = "INSERT INTO posts (post_id, username, post, date_posted) VALUES ('$post_id', '$username', '$post', '$date_posted')";
+        $sql = "INSERT INTO blogpost (post_id, username, post, date_posted) VALUES ('$post_id', '$username', '$post', '$date_posted')";
         if ($conn->query($sql) === TRUE) {
             echo "<p>Post added successfully.</p>";
         } else {
@@ -65,7 +65,7 @@ if (isset($_SESSION['username'])) {
           </form>';
 
     // Display all the posts in the database
-    $sql = "SELECT * FROM posts ORDER BY date_posted DESC";
+    $sql = "SELECT * FROM blogpost ORDER BY date_posted DESC";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
