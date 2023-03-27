@@ -1,6 +1,9 @@
 <?php
 
-session_start();
+session_start(); // start the session
+
+
+
 // Set up MySQL database connection
 $servername = "localhost";
 $username = "24466963";
@@ -18,6 +21,17 @@ if (isset($_SESSION['username'])) {
     echo "Welcome, " . $_SESSION['username'] . "! You are already logged in.";
     
     echo '<button type="button" onclick="window.location.href=\'blogtest.php\'">Continue to Feed</button>';
+    if (isset($_SESSION['username'])) {
+        // User is logged in, display logout button
+        echo '<form method="post" action="">
+              <input type="submit" name="logout" value="Logout">
+              </form>';
+    } 
+    if (isset($_POST['logout'])) {
+      session_destroy(); // destroy all session data
+      header("Location: startingPage.php"); // redirect to login page
+      exit;
+    }
 } else{
 
 // Check if the user submitted the sign-up form

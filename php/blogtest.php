@@ -9,12 +9,12 @@ if (isset($_SESSION['username'])) {
           </form>';
 } else {
     // User is not logged in, show login button
-    echo '<a href="login.php">Login</a>';
+    echo '<a href="testingLogin.php">Login</a>';
 }
 
 if (isset($_POST['logout'])) {
   session_destroy(); // destroy all session data
-  header("Location: login.php"); // redirect to login page
+  header("Location: startingPage.php"); // redirect to login page
   exit;
 }
 

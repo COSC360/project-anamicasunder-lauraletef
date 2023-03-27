@@ -20,6 +20,17 @@ if (isset($_SESSION['username'])) {
     echo "Welcome, " . $_SESSION['username'] . "! You are already logged in.";
     
     echo '<button type="button" onclick="window.location.href=\'blogtest.php\'">Continue to Feed</button>';
+    if (isset($_SESSION['username'])) {
+        // User is logged in, display logout button
+        echo '<form method="post" action="">
+              <input type="submit" name="logout" value="Logout">
+              </form>';
+    } 
+    if (isset($_POST['logout'])) {
+      session_destroy(); // destroy all session data
+      header("Location: startingPage.php"); // redirect to login page
+      exit;
+    }
 } else {
     // User is not logged in, show login form
     // Check if the user submitted the login form
