@@ -50,7 +50,7 @@ if (isset($_SESSION['username'])) {
          </form>';
 
 
-} else {
+} else {}
    // User is not logged in, display posts based on keyword search
    if (isset($_POST['search'])) {
        $search_query = $_POST['search'];
@@ -79,7 +79,7 @@ if (isset($_SESSION['username'])) {
    } else {
        echo "No posts found.";
    }
-}
+
 
 
 // Close the database connection

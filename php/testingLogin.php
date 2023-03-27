@@ -26,7 +26,7 @@ if (isset($_POST['login'])) {
         // User exists, log them in
         session_start();
         $_SESSION['username'] = $username;
-        header("Location: testingBlog.php");
+        header("Location: blogtest.php");
         exit;
     } else {
         // User doesn't exist, show an error message
@@ -44,6 +44,9 @@ if (isset($_POST['login'])) {
     <input type="password" name="password"><br>
 
     <input type="submit" name="login" value="Log In">
+    
+    <button type = "button" class = "create" onclick = "window.location.href = 'testingSignup.php'" >Create Account</button> 
+      <br>
 </form>
 
 <?php
