@@ -11,6 +11,13 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+// Check if the user is logged in
+if (isset($_SESSION['username'])) {
+    // User is logged in, display their name
+    echo "Welcome, " . $_SESSION['username'] . "!";
+    echo "You're already logged in, continue to feed?";
+    <button type = "button" class = "feed" onclick = "window.location.href = 'blogtest.php'" >Yes!</button> 
+}else{
 
 // Check if the user submitted the login form
 if (isset($_POST['login'])) {
@@ -53,5 +60,6 @@ if (isset($_POST['login'])) {
 // Display error message if there was a login error
 if (isset($error)) {
     echo "<p>$error</p>";
+}
 }
 ?>
