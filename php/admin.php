@@ -15,9 +15,9 @@ if ($conn->connect_error) {
 
 // Check if the user is an admin
 session_start();
-if(!isset($_SESSION['username']) || $row["isAdmin"] != 1) {
+if($row["isAdmin"] != 1) {
    echo "You're not an admin lol";
-} 
+
 
 // Handle deleting a blog post
 if(isset($_POST['delete_post'])) {
@@ -88,6 +88,7 @@ echo '</form><br><br>';
 }
 } else {
 echo "No users";
+}
 }
 // Close the database connection
 $conn->close();
