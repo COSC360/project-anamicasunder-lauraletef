@@ -131,7 +131,7 @@ if (isset($_POST['submit_comment'])) {
 
 
    echo "<hr>";
-}} else {
+} else {
    echo "No posts found.";
    }
   
