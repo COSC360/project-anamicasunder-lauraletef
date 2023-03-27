@@ -40,22 +40,16 @@ if (isset($_SESSION['username'])) {
     }
 }
 
-    // Check if the form to add a new comment was submitted
-    if (isset($_POST['submit_comment'])) {
-        // Get the submitted comment data
-        $username = $_SESSION['username'];
-        $comment = $_POST['comment'];
-        $date_posted = date('Y-m-d H:i:s');
-        $post_id = $_POST['post_id'];
+    // // Check if the form to add a new comment was submitted
+    // if (isset($_POST['submit_comment'])) {
+    //     // Get the submitted comment data
+    //     $username = $_SESSION['username'];
+    //     $comment = $_POST['comment'];
+    //     $date_posted = date('Y-m-d H:i:s');
+    //     $post_id = $_POST['post_id'];
 
-        // Insert the new comment into the database
-        $sql = "INSERT INTO comments (post_id, username, comment, date_posted) VALUES ('$post_id', '$username', '$comment', '$date_posted')";
-        if ($conn->query($sql) === TRUE) {
-            echo "<p>Comment added successfully.</p>";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-    }
+    
+    // }
 
     // Display the form to add a new post
     echo '<form method="post" action="">
@@ -86,10 +80,10 @@ if (isset($_SESSION['username'])) {
     if ($result_comments->num_rows > 0) {
         // Display all the comments for this post
         echo "<h3>Comments:</h3>";
-        // while ($row_comment = $result_comments->fetch_assoc()) {
+        while ($row_comment = $result_comments->fetch_assoc()) {
             echo "<p>" . $row_comment['username'] . " said: " . $row_comment['comment'] . "</p>";
             echo "<p>" . $row_comment['date_posted'] . "</p>";
-       // }
+       }
     } else {
         echo "<p>No comments yet.</p>";
     }
@@ -108,6 +102,14 @@ if (isset($_SESSION['username'])) {
     $date_posted = date('Y-m-d H:i:s');
 
 
+}
+
+// Insert the new comment into the database
+$sql = "INSERT INTO comments (post_id, username, comment, date_posted) VALUES ('$post_id', '$username', '$comment', '$date_posted')";
+if ($conn->query($sql) === TRUE) {
+    echo "<p>Comment added successfully.</p>";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 // Close the database connection
