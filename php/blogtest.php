@@ -31,6 +31,11 @@ if (isset($_SESSION['username'])) {
    echo '<form method="post" action="">
            <input type="submit" name="logout" value="Logout">
          </form>';
+         if (isset($_POST['logout'])) {
+            session_destroy(); // destroy all session data
+            header("Location: startingPage.php"); // redirect to login page
+            exit;
+          }
 
 
    // Check if the form to add a new post was submitted
