@@ -29,7 +29,7 @@ if (isset($_SESSION['username'])) {
             
     
     echo '<button type="button" onclick="window.location.href=\'blogtest.php\'">Continue to Feed</button>';
-    if (isset($_SESSION['username'])) {
+    //if (isset($_SESSION['username'])) {
         // User is logged in, display logout button
         echo '<form method="post" action="">
               <input type="submit" name="logout" value="Logout">
@@ -40,7 +40,8 @@ if (isset($_SESSION['username'])) {
       header("Location: startingPage.php"); // redirect to login page
       exit;
     }
-} else {
+//}
+ else {
     // User is not logged in, show login form
     // Check if the user submitted the login form
     if (isset($_POST['login'])) {
