@@ -2,6 +2,22 @@
 <?php
 session_start();
 
+if (isset($_SESSION['username'])) {
+    // User is logged in, display logout button
+    echo '<form method="post" action="">
+          <input type="submit" name="logout" value="Logout">
+          </form>';
+} else {
+    // User is not logged in, show login button
+    echo '<a href="login.php">Login</a>';
+}
+
+if (isset($_POST['logout'])) {
+  session_destroy(); // destroy all session data
+  header("Location: login.php"); // redirect to login page
+  exit;
+}
+
 
 // Connect to the MySQL database
 $servername = "localhost";
