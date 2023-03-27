@@ -15,10 +15,10 @@ if ($conn->connect_error) {
 
 // Check if the user is an admin
 session_start();
-if(isset($_SESSION['isAdmin']) == 0 || $_SESSION['isAdmin'] == 1) {
+if(isset($_SESSION['isAdmin']) == 0 {
     header("Location: testingLogin.php");
-    exit();
-}
+    
+} else {
 
 // Handle deleting a blog post
 if(isset($_POST['delete_post'])) {
@@ -75,6 +75,7 @@ if ($result->num_rows > 0) {
     }
 } else {
     echo "No users";
+}
 }
 
 $conn->close();
