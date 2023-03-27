@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 // Set up MySQL database connection
 $servername = "localhost";
 $username = "24466963";
