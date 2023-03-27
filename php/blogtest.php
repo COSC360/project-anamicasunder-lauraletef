@@ -65,7 +65,7 @@ if (isset($_SESSION['username'])) {
           </form>';
 
     // Display all the posts in the database
-    $sql = "SELECT * FROM blogpost ORDER BY date_posted DESC";
+    $sql = "SELECT DISTINCT * FROM blogpost ORDER BY date_posted DESC";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
@@ -80,7 +80,7 @@ if (isset($_SESSION['username'])) {
                     </form>';
     // Get comments for this post
     $post_id = $row['post_id'];
-    $sql_comments = "SELECT * FROM comments WHERE post_id = '$post_id' ORDER BY date_posted ASC";
+    $sql_comments = "SELECT DISTINCT * FROM comments WHERE post_id = '$post_id' ORDER BY date_posted ASC";
     $result_comments = $conn->query($sql_comments);
 
     if ($result_comments->num_rows > 0) {
