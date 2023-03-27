@@ -108,12 +108,10 @@ if (isset($_POST['submit_comment'])) {
                    </form>';
                    // Insert the new comment into the database
         $sql = "INSERT INTO comments (post_id, username, comment, date_posted) VALUES ('$post_id', '$username', '$comment', '$date_posted')";
-        if ($conn->query($sql) === TRUE) {
             echo "<p>Comment added successfully.</p>";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+      
         }
-        
+
    // Get comments for this post
    $post_id = $row['post_id'];
    $sql_comments = "SELECT DISTINCT * FROM comments WHERE post_id = '$post_id' ORDER BY date_posted ASC";
