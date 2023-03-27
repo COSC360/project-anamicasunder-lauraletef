@@ -55,6 +55,17 @@ if (isset($_POST['submit_comment'])) {
    $date_posted = date('Y-m-d H:i:s');
 
 
+// Insert the new comment into the database
+        $sql = "INSERT INTO comments (post_id, username, comment, date_posted) VALUES ('$post_id', '$username', '$comment', '$date_posted')";
+        if ($conn->query($sql) === TRUE) {
+            echo "<p>Comment added successfully.</p>";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+
+
+
 
 
 }
@@ -79,7 +90,7 @@ if (isset($_POST['submit_comment'])) {
         }
 
 
-    }
+            }
 
 
 
@@ -104,14 +115,8 @@ if (isset($_POST['submit_comment'])) {
                    <label for="comment">Comment:</label>
                    <textarea name="comment" id="comment"></textarea><br><br>
                    <input type="hidden" name="post_id" value="' . $row['post_id'] . '">
-                   <input type="submit" name="submit_comment" value="Submit Comment" onclick = <?php $sql = "INSERT INTO comments (post_id, username, comment, date_posted) VALUES ('$post_id', '$username', '$comment', '$date_posted')";
-                   echo "<p>Comment added successfully.</p>"; ?> >
+                   <input type="submit" name="submit_comment" value="Submit Comment">
                    </form>';
-                   // Insert the new comment into the database
-        
-      
-        }
-
    // Get comments for this post
    $post_id = $row['post_id'];
    $sql_comments = "SELECT DISTINCT * FROM comments WHERE post_id = '$post_id' ORDER BY date_posted ASC";
@@ -131,7 +136,7 @@ if (isset($_POST['submit_comment'])) {
 
 
    echo "<hr>";
-} else {
+}} else {
    echo "No posts found.";
    }
   
