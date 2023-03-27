@@ -1,3 +1,7 @@
+<head>
+     <h1>blogalert!</h1> 
+   </head>
+
 <?php
 
 session_start(); // start the session
@@ -76,7 +80,22 @@ if (isset($_SESSION['username'])) {
     }
 ?>
 
-<!-- HTML form for user to sign up --> <form method="post" action="" enctype="multipart/form-data"> <label>Username:</label> <input type="text" name="username"><br> <label>First Name:</label> <input type="text" name="firstName"><br> <label>Last Name:</label> <input type="text" name="lastName"><br> <label>Email Address:</label> <input type="text" name="email"><br> <label>Password:</label> <input type="password" name="password"><br> <label>Profile Picture:</label> <input type="file" name="profileImage"><br> <input type="submit" name="signup" value="Sign Up"> <button type="button" class="login" onclick="window.location.href='testingLogin.php'">Already Have An Account?</button> <br> </form>
+<!-- HTML form for user to sign up --> 
+<form method="post" action="" enctype="multipart/form-data"> 
+    <label>Username:</label> 
+    <input type="text" name="username" required><br> 
+    <label>First Name:</label> 
+    <input type="text" name="firstName" required>
+    <br> <label>Last Name:</label> 
+    <input type="text" name="lastName" required><br> 
+    <label>Email Address:</label> 
+    <input type="text" name="email" required><br> 
+    <label>Password:</label> 
+    <input type="password" name="password" required><br> 
+    <label>Profile Picture:</label> 
+    <input type="file" name="profileImage" required><br> 
+    <input type="submit" name="signup" value="Sign Up"> 
+    <button type="button" class="login" onclick="window.location.href='testingLogin.php'">Already Have An Account?</button> <br> </form>
 
 <?php
 // Display error message if there was a sign-up error
@@ -85,5 +104,77 @@ if (isset($error)) {
 }
 }
 ?>
+
+<style>
+    body{
+    background-color: #FFFCF7;
+
+}
+form input[type="text"] {
+  display: block;
+}
+
+h1{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size: 500%;
+        color: #738290;
+        display: flex;
+       margin-top: 1.5em;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0.3em;
+        padding-bottom: 0.1em;
+ 
+}
+
+form{
+    background-color: #C2D8B9;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        color: #515c66;
+        font-weight: bold;
+        justify-content: center;
+        text-align: center;
+        display: block; 
+        margin-left: 30%;
+        margin-right: 30%;
+        padding:2em;
+        border-radius: 30px;
+}
+input{
+    font-family:Georgia;
+    background-color:  #FFFCF7;
+    color: #515c66;
+    text-align: center;
+    width: 100%;
+    border-radius: 40px;
+    box-sizing: border-box;
+    font-size: 130%;
+    display: block;
+    padding:20px;
+    border: 0em;
+}
+
+.submit{
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+        width: 100%;
+        border-radius: 40px;
+        padding: 20px;
+        border-radius: 40px;
+        font-size: 145%; 
+        transition-duration: 0.4s;
+    
+      
+    } 
+    .submit:hover{
+        background-color: #767d6b;
+        color: #FFFCF7;
+        cursor: pointer ;
+    }
+
+
+</style>
+    
 
 
