@@ -38,8 +38,8 @@ if (isset($_SESSION['username'])) {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
     }
-}
- // Handle the submission of a new comment
+
+    // Handle the submission of a new comment
  if (isset($_POST['submit_comment'])) {
     // Get the submitted comment data
     $username = $_SESSION['username'];
@@ -57,6 +57,8 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
+}
+ 
 
  
 
