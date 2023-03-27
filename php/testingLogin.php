@@ -21,6 +21,9 @@ if ($conn->connect_error) {
 // Check if the user is logged in
 if (isset($_SESSION['username'])) {
     echo "Welcome, " . $_SESSION['username'] . "! You are already logged in.";
+    if(isset($_SESSION['username']) == 'lauraletef'){
+        boolean admin = true;
+    }
     
     echo '<button type="button" onclick="window.location.href=\'blogtest.php\'">Continue to Feed</button>';
     if (isset($_SESSION['username'])) {
@@ -151,6 +154,6 @@ input{
         cursor: pointer ;
     }
 
-    
+
     </style>
 
