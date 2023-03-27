@@ -45,7 +45,7 @@ if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
     $post_id = $_POST['post_id'];
     $comment = $_POST['comment'];
-    $date_posted = datetime('Y-m-d H:i:s');
+    $date_posted = date('Y-m-d H:i:s');
 
 
 }
