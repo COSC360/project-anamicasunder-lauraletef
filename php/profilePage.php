@@ -27,7 +27,6 @@ $result = mysqli_query($conn, $sql);
 
 // Update user information if form submitted
 if (isset($_POST['submit'])) {
-    $username = $_POST['username'];
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
     $email = $_POST['email'];
@@ -35,7 +34,7 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
 
     // Update user information in the database
-    $sql = "UPDATE users SET username = '$username',firstName='$firstName', lastName='$lastName', email='$email', profileImage='$profileImage', password='$password' WHERE username='$username'";
+    $sql = "UPDATE users SET firstName='$firstName', lastName='$lastName', email='$email', profileImage='$profileImage', password='$password' WHERE username='$username'";
     if (mysqli_query($conn, $sql)) {
         // Refresh the page to show updated user information
         header("Location: profilePage.php");
@@ -48,7 +47,6 @@ if (isset($_POST['submit'])) {
 // Display user information
 if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
-    $username = $row['username'];
     $firstName = $row['firstName'];
     $lastName = $row['lastName'];
     $email = $row['email'];
@@ -64,8 +62,6 @@ if (mysqli_num_rows($result) > 0) {
 <body>
     <h1>Welcome, <?php echo $username; ?>!</h1>
     <form method="post">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" value="<?php echo $username; ?>"><br>
 
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName" value="<?php echo $firstName; ?>"><br>

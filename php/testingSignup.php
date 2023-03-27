@@ -85,6 +85,7 @@ if (isset($_SESSION['username'])) {
     <label>Username:</label> 
     <input type="text" name="username" required><br> 
     <label>First Name:</label> 
+    <p>username cannot be changed so choose wisely!</p>
     <input type="text" name="firstName" required>
     <br> <label>Last Name:</label> 
     <input type="text" name="lastName" required><br> 
