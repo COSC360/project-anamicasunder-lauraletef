@@ -1,3 +1,12 @@
+<h1>blogalert!</h1>
+     <h2> feed </h2> 
+
+     <nav>
+        <a href = "profilePage.php">view profile!</a> 
+
+    </nav>
+
+
 <?php
 session_start();
 
