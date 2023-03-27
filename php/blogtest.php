@@ -39,7 +39,7 @@ if (isset($_SESSION['username'])) {
        // Insert the new post into the database
        $sql = "INSERT INTO blogpost (post_id, username, post, date_posted) VALUES ('$post_id', '$username', '$post', '$date_posted')";
        if ($conn->query($sql) === TRUE) {
-        //   echo "<p>Post added successfully.</p>";
+          echo "<p>Post added successfully.</p>";
        } else {
            echo "Error: " . $sql . "<br>" . $conn->error;
        }
@@ -58,7 +58,7 @@ if (isset($_POST['submit_comment'])) {
 // Insert the new comment into the database
         $sql = "INSERT INTO comments (post_id, username, comment, date_posted) VALUES ('$post_id', '$username', '$comment', '$date_posted')";
         if ($conn->query($sql) === TRUE) {
-          //  echo "<p>Comment added successfully.</p>";
+          echo "<p>Comment added successfully.</p>";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
