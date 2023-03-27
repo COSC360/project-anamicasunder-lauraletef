@@ -50,6 +50,8 @@ if (isset($_SESSION['username'])) {
 
 }
 
+}
+ 
 // Insert the new comment into the database
 $sql = "INSERT INTO comments (post_id, username, comment, date_posted) VALUES ('$post_id', '$username', '$comment', '$date_posted')";
 if ($conn->query($sql) === TRUE) {
@@ -57,9 +59,6 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-}
- 
-
  
 
     // Display the form to add a new post
