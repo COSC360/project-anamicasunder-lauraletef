@@ -34,16 +34,7 @@ if (isset($_SESSION['username'])) {
                  <input type="submit" name="delete_post" value="Delete Post">
                </form>';
 
-               if (isset($_POST['delete_post'])) {
-                $post_id = $_POST['post_id'];
-                // Delete the post from the database
-                $sql = "DELETE FROM blogpost WHERE post_id='$post_id'";
-                if ($conn->query($sql) === TRUE) {
-                   echo "<p>Post deleted successfully.</p>";
-                } else {
-                   echo "Error deleting post: " . $conn->error;
-                }
-             }
+               
              
 
     }
@@ -148,6 +139,17 @@ if (isset($_POST['submit_comment'])) {
    $post_id = $row['post_id'];
    $sql_comments = "SELECT DISTINCT * FROM comments WHERE post_id = '$post_id' ORDER BY date_posted ASC";
    $result_comments = $conn->query($sql_comments);
+
+   if (isset($_POST['delete_post'])) {
+    $post_id = $_POST['post_id'];
+    // Delete the post from the database
+    $sql = "DELETE FROM blogpost WHERE post_id='$post_id'";
+    if ($conn->query($sql) === TRUE) {
+       echo "<p>Post deleted successfully.</p>";
+    } else {
+       echo "Error deleting post: " . $conn->error;
+    }
+ }
 
 
    if ($result_comments->num_rows > 0) {
