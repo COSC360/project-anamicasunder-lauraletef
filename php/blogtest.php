@@ -39,26 +39,8 @@ if (isset($_SESSION['username'])) {
         }
     }
 
-    // Handle the submission of a new comment
- if (isset($_POST['submit_comment'])) {
-    // Get the submitted comment data
-    $username = $_SESSION['username'];
-    $post_id = $_POST['post_id'];
-    $comment = $_POST['comment'];
-    $date_posted = date('Y-m-d H:i:s');
-
-
 }
-
-}
- 
-// Insert the new comment into the database
-$sql = "INSERT INTO comments (post_id, username, comment, date_posted) VALUES ('$post_id', '$username', '$comment', '$date_posted')";
-if ($conn->query($sql) === TRUE) {
-    echo "<p>Comment added successfully.</p>";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
+  
  
 
     // Display the form to add a new post
@@ -86,6 +68,25 @@ if ($conn->query($sql) === TRUE) {
     $post_id = $row['post_id'];
     $sql_comments = "SELECT DISTINCT * FROM comments WHERE post_id = '$post_id' ORDER BY date_posted ASC";
     $result_comments = $conn->query($sql_comments);
+
+      // Handle the submission of a new comment
+ if (isset($_POST['submit_comment'])) {
+    // Get the submitted comment data
+    $username = $_SESSION['username'];
+    $post_id = $_POST['post_id'];
+    $comment = $_POST['comment'];
+    $date_posted = date('Y-m-d H:i:s');
+
+}
+
+ 
+// Insert the new comment into the database
+$sql = "INSERT INTO comments (post_id, username, comment, date_posted) VALUES ('$post_id', '$username', '$comment', '$date_posted')";
+if ($conn->query($sql) === TRUE) {
+    echo "<p>Comment added successfully.</p>";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
     if ($result_comments->num_rows > 0) {
         // Display all the comments for this post
