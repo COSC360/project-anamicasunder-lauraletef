@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 
 // Check if the user is an admin
 session_start();
-if(!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
+if(isset($_SESSION['isAdmin']) == 0 || $_SESSION['isAdmin'] == 1) {
     header("Location: testingLogin.php");
     exit();
 }
