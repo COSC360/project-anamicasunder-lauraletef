@@ -4,8 +4,9 @@
 session_start();
 
 // Check if the user is an admin
-if(!isset($_SESSION['username']) || $_SESSION['isAdmin'] != 1) {
-    header("Location: blogtest.php");
+if(!isset($_SESSION['username']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
+    var_dump($_SESSION);
+    header("Location: testingLogin.php");
     exit();
 }
 
