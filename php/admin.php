@@ -11,15 +11,16 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+    
 }
 
 // Check if the user is an admin
 session_start();
-if(isset($_SESSION['isAdmin']) == 0 {
+if(isset($_SESSION['isAdmin']) == 0) {
     header("Location: testingLogin.php");
+    exit();
     
 } else {
-    header("Location: blogtest.php");
 
 // Handle deleting a blog post
 if(isset($_POST['delete_post'])) {
