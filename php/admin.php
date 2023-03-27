@@ -19,6 +19,7 @@ if(isset($_SESSION['isAdmin']) == 0 {
     header("Location: testingLogin.php");
     
 } else {
+    header("Location: blogtest.php");
 
 // Handle deleting a blog post
 if(isset($_POST['delete_post'])) {
