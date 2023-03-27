@@ -1,5 +1,4 @@
 
-
 <?php
 session_start();
 
@@ -18,27 +17,9 @@ if ($conn->connect_error) {
 }
 
 
-
+// Check if the user is logged in
 if (isset($_SESSION['username'])) {
-    // Get the user's information from the database
-    $username = $_SESSION['username'];
-    $sql = "SELECT * FROM users WHERE username='$username'";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    $isAdmin = $row['isAdmin'];
- 
-    // If the user is an admin, display the admin controls
-    if ($isAdmin == 1) {
-        echo '<form method="post" action="">
-                 <input type="hidden" name="post_id" value="' . $row['post_id'] . '">
-                 <input type="submit" name="delete_post" value="Delete Post">
-               </form>';
-
-               
-             
-
-    }
- 
+   // User is logged in, display their name and logout button
    echo "Welcome, " . $_SESSION['username'] . "!";
    echo '<form method="post" action="">
            <input type="submit" name="logout" value="Logout">
@@ -135,21 +116,39 @@ if (isset($_POST['submit_comment'])) {
                    <input type="hidden" name="post_id" value="' . $row['post_id'] . '">
                    <input type="submit" name="submit_comment" value="Submit Comment">
                    </form>';
+
+
+		 if ($_SESSION['is_admin'] == 1) {
+           echo '<form method="post" action="">
+                   <input type="hidden" name="post_id" value="' . $row['post_id'] . '">
+                   <input type="submit" name="delete_post" value="Delete Post">
+                 </form>';
+       }
+
+
+if (isset($_POST['delete_post'])) {
+   // Get the post ID to delete
+   $post_id = $_POST['post_id'];
+
+
+   // Delete the post from the database
+   $sql = "DELETE FROM blogpost WHERE post_id = '$post_id'";
+   if ($conn->query($sql) === TRUE) {
+       echo "<p>Post deleted successfully.</p>";
+   } else {
+       echo "Error deleting post: " . $conn->error;
+   }
+
+
+   // Delete any comments for the deleted post from the session variable
+   unset($_SESSION['comments'][$post_id]);
+}
+
+
    // Get comments for this post
    $post_id = $row['post_id'];
    $sql_comments = "SELECT DISTINCT * FROM comments WHERE post_id = '$post_id' ORDER BY date_posted ASC";
    $result_comments = $conn->query($sql_comments);
-
-   if (isset($_POST['delete_post'])) {
-    $post_id = $_POST['post_id'];
-    // Delete the post from the database
-    $sql = "DELETE FROM blogpost WHERE post_id='$post_id'";
-    if ($conn->query($sql) === TRUE) {
-       echo "<p>Post deleted successfully.</p>";
-    } else {
-       echo "Error deleting post: " . $conn->error;
-    }
- }
 
 
    if ($result_comments->num_rows > 0) {
@@ -175,6 +174,11 @@ if (isset($_POST['submit_comment'])) {
 // Close the database connection
 $conn->close();
 ?>
+
+
+
+
+
 
 
 
