@@ -63,6 +63,9 @@ if (isset($_POST['signup'])) {
     <input type="password" name="password"><br>
 
     <input type="submit" name="signup" value="Sign Up">
+
+    <button type = "button" class = "login" onclick = "window.location.href = 'testingLogin.php'" >Already Have An Account?</button> 
+      <br>
 </form>
 
 <?php

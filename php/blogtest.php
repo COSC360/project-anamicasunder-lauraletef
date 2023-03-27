@@ -1,5 +1,4 @@
 
-
 <?php
 session_start();
 
@@ -51,29 +50,26 @@ if (isset($_SESSION['username'])) {
          </form>';
 
 
-   // Display the search form
-   echo '<h2>Search Posts</h2>
-         <form method="get" action="">
-           <label for="keyword">Keyword:</label>
-           <input type="text" name="keyword" id="keyword">
-           <input type="submit" name="submit" value="Search">
-         </form>';
-
-
-} else {}
-   // User is not logged in, display all the posts in the database or search results
-   $sql = "SELECT * FROM blogpost";
-   $search_keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
-
-   if (!empty($search_keyword)) {
-      // Filter posts by keyword
-      $sql .= " WHERE post LIKE '%$search_keyword%' OR username LIKE '%$search_keyword%'";
+} else {
+   // User is not logged in, display posts based on keyword search
+   if (isset($_POST['search'])) {
+       $search_query = $_POST['search'];
+       $sql = "SELECT DISTINCT * FROM blogpost WHERE post LIKE '%$search_query%' OR username LIKE '%$search_query%' ORDER BY date_posted DESC";
+       $result = $conn->query($sql);
+   } else {
+       $sql = "SELECT DISTINCT * FROM blogpost ORDER BY date_posted DESC";
+       $result = $conn->query($sql);
    }
 
-   $result = $conn->query($sql);
 
    if ($result->num_rows > 0) {
-       // Display all the posts in the database or search results
+       // Display all the posts in the database
+       echo '<form method="post" action="">
+               <label for="search">Search:</label>
+               <input type="text" name="search" id="search">
+               <input type="submit" value="Search">
+               <input type="button" value="Clear" onclick="window.location=\'\'">
+             </form><br>';
        while ($row = $result->fetch_assoc()) {
            echo "<h2>" . $row['username'] . "</h2>";
            echo "<p>" . $row['post'] . "</p>";
@@ -83,7 +79,7 @@ if (isset($_SESSION['username'])) {
    } else {
        echo "No posts found.";
    }
-
+}
 
 
 // Close the database connection
