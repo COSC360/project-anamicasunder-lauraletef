@@ -69,6 +69,7 @@ if (isset($_SESSION['username'])) {
     $sql_comments = "SELECT DISTINCT * FROM comments WHERE post_id = '$post_id' ORDER BY date_posted ASC";
     $result_comments = $conn->query($sql_comments);
 
+        
      // Handle the submission of a new comment
 if (isset($_POST['submit_comment'])) {
     // Get the submitted comment data
@@ -85,7 +86,7 @@ if (isset($_POST['submit_comment'])) {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
-
+        }}
 // Display all the posts in the database
 $sql = "SELECT DISTINCT * FROM blogpost ORDER BY date_posted DESC";
 $result = $conn->query($sql);
