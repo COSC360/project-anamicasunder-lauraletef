@@ -1,14 +1,14 @@
 <h1>blogalert!</h1>
      <h2> feed </h2> 
 
-     <nav>
-        <a href = "blogtest.php">feed</a>
-        <a href = "profilePage.php">edit profile</a> 
-        <a href = "admin.php">ADMIN ONLY</a> 
-    </nav>
+      <nav>
+         <a href = "blogtest.php">feed</a>
+         <a href = "profilePage.php">view profile!</a> 
+         <a href = "admin.php">admin</a> 
+     </nav>
 
 
-    <?php
+<?php
 session_start();
 // Connect to the MySQL database
 $servername = "localhost";
@@ -34,14 +34,13 @@ if (isset($_SESSION['username'])) {
        $post = $_POST['post'];
        $date_posted = date('Y-m-d H:i:s');
        $post_id = uniqid(); // Generate random post ID
-        // Insert the new post into the database
-        $sql = "INSERT INTO blogpost (post_id, username, post, date_posted) VALUES ('$post_id', '$username', '$post', '$date_posted')";
-        if ($conn->query($sql) === TRUE) {
+       // Insert the new post into the database
+       $sql = "INSERT INTO blogpost (post_id, username, post, date_posted) VALUES ('$post_id', '$username', '$post', '$date_posted')";
+       if ($conn->query($sql) === TRUE) {
            echo "<p>Post added successfully.</p>";
-            echo "<p>Post added successfully.</p>";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
+       } else {
+           echo "Error: " . $sql . "<br>" . $conn->error;
+       }
    }
    // Handle the submission of a new comment
 if (isset($_POST['submit_comment'])) {
@@ -50,14 +49,13 @@ if (isset($_POST['submit_comment'])) {
    $post_id = $_POST['post_id'];
    $comment = $_POST['comment'];
    $date_posted = date('Y-m-d H:i:s');
- // Insert the new comment into the database
-         $sql = "INSERT INTO comments (post_id, username, comment, date_posted) VALUES ('$post_id', '$username', '$comment', '$date_posted')";
-         if ($conn->query($sql) === TRUE) {
-           echo "<p>Comment added successfully.</p>";
-             echo "<p>Comment added successfully.</p>";
-         } else {
-             echo "Error: " . $sql . "<br>" . $conn->error;
-         }
+// Insert the new comment into the database
+        $sql = "INSERT INTO comments (post_id, username, comment, date_posted) VALUES ('$post_id', '$username', '$comment', '$date_posted')";
+        if ($conn->query($sql) === TRUE) {
+            echo "<p>Comment added successfully.</p>";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
 }
   // Check if the comments for this post have already been retrieved
         if (!isset($_SESSION['comments'][$post_id])) {
