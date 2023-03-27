@@ -21,9 +21,12 @@ if ($conn->connect_error) {
 // Check if the user is logged in
 if (isset($_SESSION['username'])) {
     echo "Welcome, " . $_SESSION['username'] . "! You are already logged in.";
-    if(isset($_SESSION['username']) == 'lauraletef'){
-        boolean admin = true;
-    }
+         if(isset($_SESSION['username']) == 'coscadmin'){
+             boolean admin = true;
+            }
+            else{
+
+            
     
     echo '<button type="button" onclick="window.location.href=\'blogtest.php\'">Continue to Feed</button>';
     if (isset($_SESSION['username'])) {
@@ -60,6 +63,7 @@ if (isset($_SESSION['username'])) {
             $error = "Invalid login credentials. Please try again.";
         }
     }
+}
 ?>
 
 <!-- HTML form for user to log in -->
@@ -93,6 +97,7 @@ form input[type="text"] {
   display: block;
  
 }
+
 
 h1{
     font-family:Georgia, 'Times New Roman', Times, serif;

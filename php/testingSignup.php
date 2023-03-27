@@ -94,7 +94,7 @@ if (isset($_SESSION['username'])) {
     <label>Password:</label> 
     <input type="password" name="password" required><br> 
     <label>Profile Picture:</label> 
-    <input type="file" name="profileImage" required><br> 
+    <input type="file" name="profileImage" ><br> 
     <input type="submit" name="signup" value="Sign Up"> 
     <button type="button" class="login" onclick="window.location.href='testingLogin.php'">Already Have An Account?</button> <br> </form>
 

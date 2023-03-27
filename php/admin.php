@@ -29,6 +29,9 @@ if(isset($_POST['delete_post'])) {
         echo "Error deleting blog post: " . $conn->error;
     }
 }
+?>
+<p> Hey Admin! Here you can delete any blogposts you see fit!</p>
+<?php
 
 // Display all blog posts
 $sql = "SELECT * FROM blogpost";
