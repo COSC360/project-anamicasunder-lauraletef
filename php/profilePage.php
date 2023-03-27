@@ -1,7 +1,7 @@
 
      <nav>
         <a href = "blogtest.php">feed</a>
-        <a href = "profilePage.php">view profile!</a> 
+        <a href = "profilePage.php">edit profile</a> 
     </nav>
 
 <?php
