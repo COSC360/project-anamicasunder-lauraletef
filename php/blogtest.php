@@ -18,9 +18,36 @@ if ($conn->connect_error) {
 }
 
 
-// Check if the user is logged in
+
 if (isset($_SESSION['username'])) {
-   // User is logged in, display their name and logout button
+    // Get the user's information from the database
+    $username = $_SESSION['username'];
+    $sql = "SELECT * FROM users WHERE username='$username'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $isAdmin = $row['isAdmin'];
+ 
+    // If the user is an admin, display the admin controls
+    if ($isAdmin == 1) {
+        echo '<form method="post" action="">
+                 <input type="hidden" name="post_id" value="' . $row['post_id'] . '">
+                 <input type="submit" name="delete_post" value="Delete Post">
+               </form>';
+
+               if (isset($_POST['delete_post'])) {
+                $post_id = $_POST['post_id'];
+                // Delete the post from the database
+                $sql = "DELETE FROM blogpost WHERE post_id='$post_id'";
+                if ($conn->query($sql) === TRUE) {
+                   echo "<p>Post deleted successfully.</p>";
+                } else {
+                   echo "Error deleting post: " . $conn->error;
+                }
+             }
+             
+
+    }
+ 
    echo "Welcome, " . $_SESSION['username'] . "!";
    echo '<form method="post" action="">
            <input type="submit" name="logout" value="Logout">
