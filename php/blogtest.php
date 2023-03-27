@@ -65,7 +65,7 @@ if (isset($_SESSION['username'])) {
    if ($result->num_rows > 0) {
        // Display all the posts in the database
        echo '<form method="post" action="">
-               <label for="search">Search:</label>
+               <label for="search">Search by username or keyword:</label>
                <input type="text" name="search" id="search">
                <input type="submit" value="Search">
                <input type="button" value="Clear" onclick="window.location=\'\'">
