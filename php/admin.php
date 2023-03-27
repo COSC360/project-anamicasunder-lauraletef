@@ -11,16 +11,14 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-    
 }
 
 // Check if the user is an admin
 session_start();
-if(isset($_SESSION['isAdmin']) == 0) {
+if(!isset($_SESSION['username']) || $_SESSION['isAdmin'] != 1) {
     header("Location: testingLogin.php");
     exit();
-    
-} else {
+}
 
 // Handle deleting a blog post
 if(isset($_POST['delete_post'])) {
@@ -54,7 +52,14 @@ if ($result->num_rows > 0) {
         echo "Username: " . $row["username"] . "<br>";
         echo "Post: " . $row["post"] . "<br>";
         echo "Likes: " . $row["likes"] . "<br>";
-        echo '<form method="post" action=""><input type="hidden" name="post_id" value="' . $row["post_id"] . '"><input type="submit" name="delete_post" value="Delete"></form><br><br>';
+        echo '<form method="post" action=""><input type="hidden" name="post_id" value="' . $row["post_id"] . '">';
+        
+        // Only show delete button if the user is an admin
+        if ($_SESSION['isAdmin'] == 1) {
+            echo '<input type="submit" name="delete_post" value="Delete"></form><br><br>';
+        } else {
+            echo '</form><br><br>';
+        }
     }
 } else {
     echo "No blog posts";
@@ -73,12 +78,19 @@ if ($result->num_rows > 0) {
         echo "Email: " . $row["email"] . "<br>";
         echo "Profile Image: " . $row["profileImage"] . "<br>";
         echo "Is Admin: " . $row["isAdmin"] . "<br>";
-        echo '<form method="post" action=""><input type="hidden" name="username" value="' . $row["username"] . '"><input type="submit" name="delete_user" value="Delete"></form><br><br>';
-    }
-} else {
-    echo "No users";
-}
-}
+        echo '<form method="post" action=""><input type="hidden" name="username" value="' . $row["username"] . '">';
 
+        // Only show delete button if the user is an admin and the user being deleted is not an admin
+        if ($_SESSION['isAdmin'] == 1 && $row["isAdmin"] != 1) {
+            echo '<input type="submit" name="delete_user" value="Delete"></form><br><br>';
+} else {
+echo '</form><br><br>';
+}
+}
+} else {
+echo "No users";
+}
+// Close the database connection
 $conn->close();
 ?>
+
