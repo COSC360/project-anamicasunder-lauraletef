@@ -43,7 +43,7 @@ if ($result->num_rows > 0) {
         echo '<form method="post" action=""><input type="hidden" name="post_id" value="' . $row["post_id"] . '">';
         
         // Only show delete button if the user is an admin
-        if ($_SESSION['isAdmin'] == 1) {
+        if (admin == true) {
             echo '<input type="submit" name="delete_post" value="Delete"></form><br><br>';
         } else {
             echo '</form><br><br>';
