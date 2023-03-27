@@ -115,22 +115,6 @@ if (isset($_POST['submit_comment'])) {
                    <input type="hidden" name="post_id" value="' . $row['post_id'] . '">
                    <input type="submit" name="submit_comment" value="Submit Comment">
                    </form>';
- if ($_SESSION['user_type'] == 'admin') {
-           echo '<form method="post" action="">
-                     <input type="hidden" name="post_id" value="' . $row['post_id'] . '">
-                     <input type="submit" name="delete_post" value="Delete Post">
-                 </form>';
-       }
-
-
-       echo '<form method="post" action="">
-               <label for="comment">Comment:</label>
-               <textarea name="comment" id="comment"></textarea><br><br>
-               <input type="hidden" name="post_id" value="' . $row['post_id'] . '">
-               <input type="submit" name="submit_comment" value="Submit Comment">
-             </form>';
-
-
    // Get comments for this post
    $post_id = $row['post_id'];
    $sql_comments = "SELECT DISTINCT * FROM comments WHERE post_id = '$post_id' ORDER BY date_posted ASC";
@@ -160,5 +144,3 @@ if (isset($_POST['submit_comment'])) {
 // Close the database connection
 $conn->close();
 ?>
-
-
