@@ -2,8 +2,8 @@
      <h2> feed </h2> 
 
      <nav>
+        <a href = "blogtest.php">feed</a>
         <a href = "profilePage.php">view profile!</a> 
-
     </nav>
 
 
