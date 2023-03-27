@@ -104,11 +104,11 @@ if (isset($_POST['submit_comment'])) {
                    <label for="comment">Comment:</label>
                    <textarea name="comment" id="comment"></textarea><br><br>
                    <input type="hidden" name="post_id" value="' . $row['post_id'] . '">
-                   <input type="submit" name="submit_comment" value="Submit Comment">
+                   <input type="submit" name="submit_comment" value="Submit Comment" onclick = <?php $sql = "INSERT INTO comments (post_id, username, comment, date_posted) VALUES ('$post_id', '$username', '$comment', '$date_posted')";
+                   echo "<p>Comment added successfully.</p>"; ?> >
                    </form>';
                    // Insert the new comment into the database
-        $sql = "INSERT INTO comments (post_id, username, comment, date_posted) VALUES ('$post_id', '$username', '$comment', '$date_posted')";
-            echo "<p>Comment added successfully.</p>";
+        
       
         }
 
