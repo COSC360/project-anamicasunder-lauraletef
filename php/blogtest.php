@@ -86,10 +86,10 @@ if (isset($_SESSION['username'])) {
     if ($result_comments->num_rows > 0) {
         // Display all the comments for this post
         echo "<h3>Comments:</h3>";
-        while ($row_comment = $result_comments->fetch_assoc()) {
+        // while ($row_comment = $result_comments->fetch_assoc()) {
             echo "<p>" . $row_comment['username'] . " said: " . $row_comment['comment'] . "</p>";
             echo "<p>" . $row_comment['date_posted'] . "</p>";
-        }
+       // }
     } else {
         echo "<p>No comments yet.</p>";
     }
