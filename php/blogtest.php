@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -116,33 +115,20 @@ if (isset($_POST['submit_comment'])) {
                    <input type="hidden" name="post_id" value="' . $row['post_id'] . '">
                    <input type="submit" name="submit_comment" value="Submit Comment">
                    </form>';
-
-
-		 if ($_SESSION['is_admin'] == 1) {
+ if ($_SESSION['user_type'] == 'admin') {
            echo '<form method="post" action="">
-                   <input type="hidden" name="post_id" value="' . $row['post_id'] . '">
-                   <input type="submit" name="delete_post" value="Delete Post">
+                     <input type="hidden" name="post_id" value="' . $row['post_id'] . '">
+                     <input type="submit" name="delete_post" value="Delete Post">
                  </form>';
        }
 
 
-if (isset($_POST['delete_post'])) {
-   // Get the post ID to delete
-   $post_id = $_POST['post_id'];
-
-
-   // Delete the post from the database
-   $sql = "DELETE FROM blogpost WHERE post_id = '$post_id'";
-   if ($conn->query($sql) === TRUE) {
-       echo "<p>Post deleted successfully.</p>";
-   } else {
-       echo "Error deleting post: " . $conn->error;
-   }
-
-
-   // Delete any comments for the deleted post from the session variable
-   unset($_SESSION['comments'][$post_id]);
-}
+       echo '<form method="post" action="">
+               <label for="comment">Comment:</label>
+               <textarea name="comment" id="comment"></textarea><br><br>
+               <input type="hidden" name="post_id" value="' . $row['post_id'] . '">
+               <input type="submit" name="submit_comment" value="Submit Comment">
+             </form>';
 
 
    // Get comments for this post
@@ -174,33 +160,5 @@ if (isset($_POST['delete_post'])) {
 // Close the database connection
 $conn->close();
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
