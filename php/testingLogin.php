@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 
 // Check if the user is logged in
 if (isset($_SESSION['username'])) {
-    echo "Welcome, " . $_SESSION['username'] . "! You are already logged in."
+    echo "Welcome, " . $_SESSION['username'] . "! You are already logged in.";
     
     echo '<button type="button" onclick="window.location.href=\'blogtest.php\'">Continue to Feed</button>';
 } else {
