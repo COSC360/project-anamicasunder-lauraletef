@@ -69,42 +69,59 @@ if (isset($_SESSION['username'])) {
     $sql_comments = "SELECT DISTINCT * FROM comments WHERE post_id = '$post_id' ORDER BY date_posted ASC";
     $result_comments = $conn->query($sql_comments);
 
-      // Handle the submission of a new comment
- if (isset($_POST['submit_comment'])) {
+     // Handle the submission of a new comment
+if (isset($_POST['submit_comment'])) {
     // Get the submitted comment data
     $username = $_SESSION['username'];
     $post_id = $_POST['post_id'];
     $comment = $_POST['comment'];
     $date_posted = date('Y-m-d H:i:s');
 
-}
-
- 
-// Insert the new comment into the database
-$sql = "INSERT INTO comments (post_id, username, comment, date_posted) VALUES ('$post_id', '$username', '$comment', '$date_posted')";
-if ($conn->query($sql) === TRUE) {
-    echo "<p>Comment added successfully.</p>";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-    if ($result_comments->num_rows > 0) {
-        // Display all the comments for this post
-        echo "<h3>Comments:</h3>";
-        while ($row_comment = $result_comments->fetch_assoc()) {
-            echo "<p>" . $row_comment['username'] . " said: " . $row_comment['comment'] . "</p>";
-            echo "<p>" . $row_comment['date_posted'] . "</p>";
-       }
+    // Insert the new comment into the database
+    $sql = "INSERT INTO comments (post_id, username, comment, date_posted) VALUES ('$post_id', '$username', '$comment', '$date_posted')";
+    if ($conn->query($sql) === TRUE) {
+        echo "<p>Comment added successfully.</p>";
     } else {
-        echo "<p>No comments yet.</p>";
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
+}
 
-    echo "<hr>";
-}} else {
-    echo "No posts found.";
+// Display all the posts in the database
+$sql = "SELECT DISTINCT * FROM blogpost ORDER BY date_posted DESC";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo "<h2>" . $row['username'] . "</h2>";
+        echo "<p>" . $row['post'] . "</p>";
+        echo "<p>" . $row['date_posted'] . "</p>";
+        echo '<form method="post" action="">
+                <label for="comment">Comment:</label>
+                <textarea name="comment" id="comment"></textarea><br><br>
+                <input type="hidden" name="post_id" value="' . $row['post_id'] . '">
+                <input type="submit" name="submit_comment" value="Submit Comment">
+              </form>';
+
+        // Get comments for this post
+        $post_id = $row['post_id'];
+        $sql_comments = "SELECT DISTINCT * FROM comments WHERE post_id = '$post_id' ORDER BY date_posted ASC";
+        $result_comments = $conn->query($sql_comments);
+
+        if ($result_comments->num_rows > 0) {
+            // Display all the comments for this post
+            echo "<h3>Comments:</h3>";
+            while ($row_comment = $result_comments->fetch_assoc()) {
+                echo "<p>" . $row_comment['username'] . " said: " . $row_comment['comment'] . "</p>";
+                echo "<p>" . $row_comment['date_posted'] . "</p>";
+            }
+        } else {
+            echo "<p>No comments yet.</p>";
+        }
+
+        echo "<hr>";
     }
-    
-   
+} else {
+    echo "No posts found.";
+}
 
 // Close the database connection
 $conn->close();
