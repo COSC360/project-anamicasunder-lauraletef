@@ -1,15 +1,4 @@
-
 <?php
-// Start the session
-session_start();
-
-// Check if the user is an admin
-if(!isset($_SESSION['username']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
-    var_dump($_SESSION);
-    header("Location: testingLogin.php");
-    exit();
-}
-
 // Connect to the database
 $servername = "localhost";
 $username = "24466963";
@@ -21,6 +10,13 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if the user is an admin
+session_start();
+if(!isset($_SESSION['username']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
+    header("Location: login.php");
+    exit();
 }
 
 // Handle deleting a blog post
@@ -56,6 +52,4 @@ if ($result->num_rows > 0) {
 } else {
     echo "No blog posts";
 }
-
-$conn->close();
 ?>
