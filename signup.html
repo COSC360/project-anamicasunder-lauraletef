@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>sign up</title>
+
+
+<script type="text/javascript" src="scripts/validate.js"></script>
+<script>
+function checkPasswordMatch(e){
+ const password1 = document.getElementById("password").value;
+     const password2 = document.getElementById("password-check").value;
+    
+     if (password1 !== password2) {
+       makeRed(document.getElementById("password-check"));
+       alert("passwords do not match.");
+       e.preventDefault(); // prevent form submission
+     }
+   }
+
+</script>
+
+<style>
+     body{
+        background-color: #FFFCF7;
+    }
+    h1{
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size: 500%;
+        color: #738290;
+        display: flex;
+        margin-top: 0.4em;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 0.1em;
+    }
+    form {
+        background-color: #E4F0D0;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #738290;
+        border-radius: 30px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        position: absolute;
+        top: 52%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        border: none;
+        border-radius: 30px;
+        padding: 4px;
+        font-size: 14px;
+        width: 300px;
+    }
+
+    input[type="file"] {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        border: none;
+        font-size: 14px;
+        width: 300px;
+    }
+
+    input[type=file]::file-selector-button {
+        border-radius: 30px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        border: none;
+        font-size: 14px;
+        background-color: #FFFFFF;
+        color: #738290;
+        transition-duration: 0.4s;
+
+    }
+
+    input[type=file]::file-selector-button:hover {
+        cursor: pointer ;
+
+    }
+    input[type="submit"] {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-weight: 550;
+        border: none;
+        border-radius: 30px;
+        padding: 4px;
+        font-size: 14px;
+        background-color: #FFFCF7;
+        color: #767d6b;
+        transition-duration: 0.4s;
+
+    }
+
+    input[type="submit"]:hover{
+        background-color: #767d6b;
+        color: #FFFCF7;
+        cursor: pointer ;
+    }
+    #nav{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 33.5em;
+    }
+    #nav2{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1em;
+    }
+
+    a:visited {
+        color: #738290;
+        font-size: 100%;
+        text-decoration: none;
+
+    }
+    a:link {
+        color: #738290;
+        font-size: 100%;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #C2D8B9;
+        text-decoration: underline;
+    }
+
+
+</style>
+
+
+
+</head>
+
+<body>
+    <h1>sign up</h1>
+
+  <form method="POST" action="signup.php" id="mainForm" enctype="multipart/form-data">
+   first name:<br>
+   <input type="text" name="firstname" id="firstname" class="required">
+   <br>
+   last name:<br>
+   <input type="text" name="lastname" id="lastname" class="required">
+   <br>
+   username:<br>
+   <input type="text" name="username" id="username" class="required">
+   <br>
+   email:<br>
+   <input type="text" name="email" id="email" class="required">
+   <br>
+   password:<br>
+   <input type="password" name="password" id="password" class="required">
+   <br>
+   re-enter password:<br>
+   <input type="password" name="password-check" id="password-check" class="required">
+   <br>
+   profile picture:<br>
+   <input type="file" name="userImage" id="userImage">
+   <br><br>
+   <input type="submit" value="sign up" onclick="checkPasswordMatch(event)">
+  </form>
+
+  <a href="login.php" id = "nav">log in instead</a>
+  <a href="home.php" id = "nav2">return home</a>
+
+
+</body>
