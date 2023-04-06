@@ -97,18 +97,10 @@
 
     /* center the form and its elements */
     #mainForm {
-      text-align: center;
+     
       font-size: 150%;
       color: #738290;
     }
-
-	  /* center the form and its elements */
-	  #mainForm {
-      text-align: center;
-      font-size: 150%;
-      color: #738290;
-    }
-
     table {
       margin-bottom: 0 auto;
       display: flex;
@@ -120,6 +112,8 @@
       font-family:Georgia, 'Times New Roman', Times, serif;
       margin-bottom: 0.0001em;
       padding: 1em;
+	    margin-left: auto;
+  margin-right: auto;
 
     }
 
