@@ -19,7 +19,7 @@ if (isset($_SESSION['username'])) {
         font-size: 500%;
         color: #738290;
         display: flex;
-        margin-top: 2.3em;
+        margin-top: 2em;
         justify-content: center;
         align-items: center;
         padding-bottom: 0.2em;
