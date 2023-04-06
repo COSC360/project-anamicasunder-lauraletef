@@ -51,7 +51,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     body{
         background-color: #FFFCF7;
     }
-    h1{
+    .header h1{
         font-size: 500%;
         color: #738290;
         display: flex;
@@ -60,7 +60,17 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         align-items: left;
         margin-bottom: 0.3em;
         padding-bottom: 0.1em;
+        margin-left: 0.2em;
   
+    }
+    .smaller{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        color: #C2D8B9;
+        margin-top: 0.3em;
+        font-size: 75%;
     }
 
     h2{
@@ -184,7 +194,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <div class="header">
-        <h1>blogalert!  <span style=color:#C2D8B9 >  feed</span></h1>
+        <h1>blogalert!  <span style=color:#C2D8B9 > <div class = "smaller"> feed</div></span></h1>
         <div class="buttons">
             <?php if (isset($_SESSION['username'])): ?>
                 <a href="logout.php" id = "nav">log out</a>

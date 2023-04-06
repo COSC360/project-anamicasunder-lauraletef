@@ -70,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['username'])) {
         align-items: left;
         margin-bottom: 0.3em;
         padding-bottom: 0.1em;
+        margin-left: 0.2em;
   
     }
 
@@ -79,6 +80,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['username'])) {
         align-items: center;
         font-family:Georgia, 'Times New Roman', Times, serif;
         color: #738290;
+    }
+
+    .smaller{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        color: #C2D8B9;
+        margin-top: 0.4em;
+        font-size: 75%;
     }
     #nav:visited {
         color: #738290;
@@ -237,7 +248,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['username'])) {
 </head>
 <body>
 <div class="header">
-        <h1>blogalert!<span style=color:#C2D8B9 >  comments</span></h1>
+        <h1>blogalert!<span style=color:#C2D8B9 ><div class = "smaller">comments</div></span></h1>
         <div class="buttons">
             <?php if (isset($_SESSION['username'])): ?>
                 <a href="logout.php" id = "nav">log out</a>

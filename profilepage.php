@@ -6,7 +6,7 @@
          body{
         background-color: #FFFCF7;
     }
-    h1{
+     h1{
         font-size: 500%;
         color: #738290;
         display: flex;
@@ -15,7 +15,18 @@
         align-items: left;
         margin-bottom: 0.3em;
         padding-bottom: 0.1em;
+        margin-left:0.2em; 
   
+    }
+
+    .smaller{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        color: #C2D8B9;
+        margin-top: 0.3em;
+        font-size: 75%;
     }
 
     h2{
@@ -54,6 +65,7 @@
 
     a {
         margin-right: 25px;
+        float:top;
     }
 
     body {
@@ -99,10 +111,11 @@
         justify-content: space-between;
     }
  
-    #admin-controls {
-        margin-top: 0;
-
+    a:visited{
+        color: #738290;
+        font-family: Georgia, 'Times New Roman', Times, serif;
     }
+
 
     #comments:visited {
         padding-left: 0.3em;
@@ -155,7 +168,7 @@
         }
         ?>
     <div class="header">
-        <h1>blogalert! <span style=color:#C2D8B9 >  profile</h1>
+        <h1>blogalert! <span style=color:#C2D8B9 > <div class = "smaller"> profile</div></h1>
         <div class="buttons">
             <?php if (isset($_SESSION['username'])): ?>
                 <a href="logout.php" id = "nav">log out</a>
@@ -226,7 +239,7 @@
 
         // display admin control link if user is admin
         if ($isAdmin) {
-            echo "<div id='admin-controls'><a href='finduser.php'>Admin Controls</a></div>";
+            echo "<div id='admin-controls'><a href='finduser.php' class = 'admin-controls'>Admin Controls</a></div>";
         }
 
         // close database connection

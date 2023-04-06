@@ -7,7 +7,7 @@
       background-color: #FFFCF7;
     }
 
-    h1 {
+    .header h1 {
       font-size: 500%;
       color: #738290;
       display: flex;
@@ -16,6 +16,16 @@
       align-items: left;
       margin-bottom: 0.3em;
       padding-bottom: 0.1em;
+    }
+
+    .smaller{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        color: #C2D8B9;
+        margin-top: 0.4em;
+        font-size: 75%;
     }
 
     .header {
@@ -103,7 +113,7 @@
   <script type="text/javascript" src="scripts/validate.js"></script>
 
   <div class="header">
-    <h1>blogalert! <span style=color:#C2D8B9 > admin controls</h1>
+    <h1>blogalert! <span style=color:#C2D8B9 ><div class = "smaller"> admin controls</div></h1>
     <div class="buttons">
       <a href="logout.php" id="nav">log out</a>
       <a href="frontpage.php" id="nav">feed</a>
