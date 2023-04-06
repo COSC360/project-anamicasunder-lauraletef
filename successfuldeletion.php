@@ -4,8 +4,8 @@
 	<title>User Deleted</title>
 </head>
 <body>
-	<h1>User has been deleted</h1>
-	<p><a href="profilepage.php">Return to profile page</a></p>
+	<h1>User has been deleted!</h1>
+	<p><a href="profilepage.php">return to profile page</a></p>
 </body>
 
 <style>
@@ -47,10 +47,11 @@
             width: 600px;
 			font-size: 20px;
 			background-color: #C2D8B9;
-			color: #515c66;
+			color:  #FFFCF7;
 			transition-duration: 0.4s;
 			display: block; /* Set the button to a block element to enable margin settings */
 			margin: 0 auto;
+			text-align: center;
 		}
 
     a:hover{
