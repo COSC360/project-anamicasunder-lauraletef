@@ -23,16 +23,22 @@ function checkPasswordMatch(e){
      body{
         background-color: #FFFCF7;
     }
-    h1{
-        font-family:Georgia, 'Times New Roman', Times, serif;
-        font-size: 500%;
-        color: #738290;
-        display: flex;
-        margin-top: 0.4em;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 0.1em;
-    }
+    h1 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 500%;
+  color: #738290;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+  padding-bottom: 0.1em;
+}
+
     form {
         background-color: #E4F0D0;
         font-family: Georgia, 'Times New Roman', Times, serif;
@@ -42,13 +48,14 @@ function checkPasswordMatch(e){
         padding-bottom: 20px;
         padding-left: 20px;
         padding-right: 20px;
-        position: absolute;
+        position: fixed;
         top: 52%;
         left: 50%;
         transform: translate(-50%, -50%);
         display: flex;
         flex-direction: column;
         gap: 1px;
+        margin-top: 1.2em;
     }
 
     input[type="text"],
