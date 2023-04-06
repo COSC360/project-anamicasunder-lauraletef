@@ -1,6 +1,6 @@
 <?php
     // connect to database
-    $conn = mysqli_connect("localhost", "webuser", "P@ssw0rd", "blogalert");
+    $conn = mysqli_connect("localhost", "24466963", "24466963", "db_24466963");
 
     // check connection
     if (!$conn) {

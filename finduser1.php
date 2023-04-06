@@ -168,9 +168,9 @@
 			if (isset($_POST['username'])) {
 			$username = $_POST['username'];
 			$host = "localhost";
-			$database = "blogalert";
-			$user = "webuser";
-			$password_db = "P@ssw0rd";
+			$database = "db_24466963";
+			$user = "24466963";
+			$password_db = "24466963";
 
 			$db = mysqli_connect($host, $user, $password_db, $database);
 

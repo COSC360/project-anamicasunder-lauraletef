@@ -11,9 +11,9 @@ if (!isset($_POST['firstname'], $_POST['lastname'], $_POST['username'], $_POST['
 }
 
 $host = "localhost";
-$database = "blogalert";
-$user = "webuser";
-$password = "P@ssw0rd";
+$database = "db_24466963";
+$user = "24466963";
+$password = "24466963";
 
 $connection = mysqli_connect($host, $user, $password, $database);
 

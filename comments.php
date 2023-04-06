@@ -10,7 +10,7 @@ if (!isset($_GET['postID'])) {
 $postID = $_GET['postID'];
 
 // Establish a database connection
-$dbh = new PDO('mysql:host=localhost; dbname=blogalert', 'webuser', 'P@ssw0rd');
+$dbh = new PDO('mysql:host=localhost; dbname=db_24466963', '24466963', '24466963');
 
 // Fetch the blog post and its author
 $stmt = $dbh->prepare('SELECT username, textvalue FROM posts JOIN users ON posts.userID = users.userID WHERE postID = :postID');

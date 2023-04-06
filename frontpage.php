@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['username'])) {
     // Get the user ID from the session
     $userID = $_SESSION['userID'];
 
-    $dbh = new PDO('mysql:host=localhost; dbname=blogalert', 'webuser', 'P@ssw0rd');
+    $dbh = new PDO('mysql:host=localhost; dbname=db_24466963', '24466963', '24466963');
     $stmt = $dbh->prepare('SELECT userID FROM users WHERE username = :username');
     $stmt->bindParam(':username', $_SESSION['username']);
     $stmt->execute();
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['username'])) {
     // Insert the blog post into the database
     try {
         // Establish a database connection
-        $dbh = new PDO('mysql:host=localhost; dbname=blogalert', 'webuser', 'P@ssw0rd');
+        $dbh = new PDO('mysql:host=localhost; dbname=db_24466963', '24466963', '24466963');
 
         // Prepare the SQL statement
         $stmt = $dbh->prepare('INSERT INTO posts (userID, textvalue) VALUES (:userID, :textvalue)');
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['username'])) {
 }
 
 // Display blog posts
-$dbh = new PDO('mysql:host=localhost; dbname=blogalert', 'webuser', 'P@ssw0rd');
+$dbh = new PDO('mysql:host=localhost; dbname=db_24466963', '24466963', '24466963');
 $stmt = $dbh->prepare('SELECT postID, username, textvalue FROM posts JOIN users ON posts.userID = users.userID ORDER BY postID DESC');
 $stmt->execute();
 $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
