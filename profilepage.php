@@ -116,6 +116,12 @@
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
 
+    a:hover {
+        color: #C2D8B9;
+    }
+
+
+
 
     #comments:visited {
         padding-left: 0.3em;
@@ -239,7 +245,7 @@
 
         // display admin control link if user is admin
         if ($isAdmin) {
-            echo "<div id='admin-controls'><a href='finduser.php' class = 'admin-controls'>Admin Controls</a></div>";
+            echo "<div id='admin-controls'><a href='finduser.php' class = 'admin-controls'>admin controls</a></div>";
         }
 
         // close database connection
