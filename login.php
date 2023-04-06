@@ -22,7 +22,7 @@ if (isset($_SESSION['username'])) {
         margin-top: 2.3em;
         justify-content: center;
         align-items: center;
-        padding-bottom: 0.1em;
+        padding-bottom: 0.2em;
     }
     form {
         background-color: #E4F0D0;

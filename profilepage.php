@@ -66,6 +66,7 @@
     a {
         margin-right: 25px;
         float:top;
+        color:#738290;
     }
 
     body {
