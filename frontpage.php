@@ -92,12 +92,14 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 /* Set the position of the search bar */
 .search {
   position: relative;
+  display: flex;
   top: 0;
   left: 0;
-  float: right;
   width: 25%;
   background-color: #FFFCF7;
   padding: 10px; 
+  justify-content: center;
+    align-items: center;
 }
 
 /* Style the input field */
@@ -107,6 +109,8 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
   width: 50%;
   font-size: 16px;
   margin-top: 2em;
+  justify-content: center;
+    align-items: center;
 }
 
 
@@ -255,12 +259,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>  
     </div>
 
-    <div class="search">
-    <form method="get">
-    <input type="text" name="q" placeholder="username or keyword">
-    <button type="submit">search!</button>
-    </form>
-    </div>
+  
 
     <?php if (isset($_SESSION['username'])): ?>
         <h2>write a blog post:</h2>
@@ -271,6 +270,12 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php endif; ?>
 
     <h2>recent posts</h2>
+    <div class="search">
+    <form method="get">
+    <input type="text" name="q" placeholder="username or keyword">
+    <button type="submit">search!</button>
+    </form>
+    </div>
     <?php foreach ($posts as $post): ?>
     <div class="post-container">
         <div>
