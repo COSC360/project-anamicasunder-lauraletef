@@ -92,6 +92,32 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         margin-left: 0.2em;
   
     }
+
+    .search {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search input[type="text"] {
+    padding: 0.5em;
+    border: none;
+    border-radius: 5px;
+    margin-right: 0.5em;
+}
+
+.search button {
+    padding: 0.5em 1em;
+    background-color: #738290;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
     .smaller{
         display: flex;
         justify-content: space-between;
@@ -146,17 +172,6 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         align-items: center;
         margin-top: 1em;
 
-    }
-
-    .search{
-        display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 1em;
-    background-color: #FFFFFF;
-    border: 0.7em solid #E4F0D0;
-    border-radius: 30px;
-    padding: 2em;
     }
 
     textarea {
