@@ -255,12 +255,6 @@ if (isset($_GET['q'])) {
         </div>  
     </div>
 
-    <div class="search">
-    <form method="get">
-    <input type="text" name="q" placeholder="username or keyword">
-    <button type="submit">search!</button>
-    </form>
-    </div>
   
 
     <?php if (isset($_SESSION['username'])): ?>
@@ -272,6 +266,12 @@ if (isset($_GET['q'])) {
     <?php endif; ?>
 
     <h2>recent posts</h2>
+    <div class="search">
+    <form method="get">
+    <input type="text" name="q" placeholder="username or keyword">
+    <button type="submit">search!</button>
+    </form>
+    </div>
    
     <?php foreach ($posts as $post): ?>
     <div class="post-container">
