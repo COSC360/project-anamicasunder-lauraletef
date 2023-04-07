@@ -77,100 +77,72 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html>
 <style>
-    body{
+     body {
         background-color: #FFFCF7;
     }
-    .header h1{
-        font-size: 500%;
-        color: #738290;
-        display: flex;
-        margin-top: 0.5em;
-        justify-content: left;
-        align-items: left;
-        margin-bottom: 0.3em;
-        padding-bottom: 0.1em;
-        margin-left: 0.2em;
-  
-    }
+
     .header {
-    position: relative;
-    }
-
-    .search {
-    margin-bottom: 20em;
-    display: flex;
-    justify-content: right;
-    align-items: right;
-    top: 100%;
-    left: 0;
-    width: 100%;
-
-}
-
-
-.search input[type="text"] {
-    padding: 0.5em;
-    border: none;
-    border-radius: 5px;
-    margin-right: 0.5em;
-}
-
-.search button {
-    padding: 0.5em 1em;
-    background-color: #738290;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-
-    .smaller{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #738290;
+    }
+
+    .header h1 {
+        font-size: 500%;
+        color: #738290;
+        display: flex;
+        justify-content: left;
+        align-items: left;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+        padding-bottom: 0.1em;
+        margin-left: 0.2em;
+    }
+
+    .smaller {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: Georgia, 'Times New Roman', Times, serif;
         color: #C2D8B9;
         margin-top: 0.3em;
         font-size: 75%;
     }
 
-    h2{
+    h2 {
         font-size: 300%;
         color: #738290;
         display: flex;
-        margin-top: 0.01em;
         justify-content: center;
         align-items: center;
+        margin-top: 0.01em;
         margin-bottom: 0.3em;
         padding-bottom: 0.1em;
-  
     }
-    .header {
+
+    .search {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
-        font-family:Georgia, 'Times New Roman', Times, serif;
-        color: #738290;
-    }
-    #nav:visited {
-        color: #738290;
-        font-size: 150%;
-        text-decoration: none;
-
-    }
-    #nav:link {
-        color: #738290;
-        font-size: 150%;
-        text-decoration: none;
+        margin-top: 1em;
     }
 
-    #nav:hover {
-        color: #C2D8B9;
+    .search input[type="text"] {
+        padding: 0.5em;
+        border: none;
+        border-radius: 5px;
+        margin-right: 0.5em;
     }
 
-    a {
-        margin-right: 25px;
+    .search button {
+        padding: 0.5em 1em;
+        background-color: #738290;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
     }
 
     form {
@@ -178,7 +150,6 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         flex-direction: column;
         align-items: center;
         margin-top: 1em;
-
     }
 
     textarea {
@@ -190,28 +161,27 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         border-width: 1em;
         border-radius: 30px;
         padding: 10px;
-        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-family: Georgia, 'Times New Roman', Times, serif;
         color: #738290;
     }
 
     .post-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 1em;
-    background-color: #FFFFFF;
-    border: 0.7em solid #E4F0D0;
-    border-radius: 30px;
-    padding: 2em;
-
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 1em;
+        background-color: #FFFFFF;
+        border: 0.7em solid #E4F0D0;
+        border-radius: 30px;
+        padding: 2em;
     }
 
-    .post-container h3{
+    .post-container h3 {
         color: #738290;
     }
 
     .comments-link {
-    align-self: flex-end;
+        align-self: flex-end;
     }
 
     #comments:visited {
