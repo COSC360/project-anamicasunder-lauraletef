@@ -97,11 +97,10 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     .search {
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 20em;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: right;
+    align-items: right;
     position: absolute;
     top: 100%;
     left: 0;
