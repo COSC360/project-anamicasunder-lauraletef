@@ -95,7 +95,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
   display: flex;
   top: 0;
   left: 0;
-  width: 50%;
+  width: 100%;
   background-color: #FFFCF7;
   padding: 10px; 
   justify-content: center;
@@ -106,7 +106,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 .search input[type="text"] {
   border: none;
   border-radius: 5px;
-  width: 50%;
+  width: 100%;
   font-size: 16px;
   margin-top: 2em;
   justify-content: center;
