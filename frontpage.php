@@ -101,7 +101,6 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     display: flex;
     justify-content: right;
     align-items: right;
-    position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
