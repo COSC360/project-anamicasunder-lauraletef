@@ -45,14 +45,6 @@ $stmt->execute();
 $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
-// Display the search form
-echo '<div class="search">';
-echo '<form method="get">';
-echo '<input type="text" name="q" placeholder="Search">';
-echo '<button type="submit">Search</button>';
-echo '</form>';
-echo '</div>';
-
 
 $dbh = new PDO('mysql:host=localhost; dbname=db_24466963', '24466963', '24466963');
 
@@ -102,37 +94,17 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
   position: relative;
   top: 0;
   left: 0;
-  width: 100%;
-  background-color: #FFFFFF; /* Optional: Change the background color */
-  padding: 10px; /* Optional: Add some padding */
-  border-bottom: 1px solid #E4E4E4; /* Optional: Add a border */
+  width: 50%;
+  background-color: #FFFCF7; /* Optional: Change the background color */
+  padding: 5px; /* Optional: Add some padding */
 }
 
 /* Style the input field */
 .search input[type="text"] {
-  padding: 10px; /* Optional: Add some padding */
   border: none;
   border-radius: 5px;
-  width: 80%;
+  width: 50%;
   font-size: 16px;
-}
-
-/* Style the search button */
-.search button[type="submit"] {
-  background-color: #738290;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  width: 20%;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-/* Style the search button on hover */
-.search button[type="submit"]:hover {
-  background-color: #C2D8B9;
 }
 
 
@@ -279,6 +251,13 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             <?php endif; ?>
         </div>  
+    </div>
+
+    <div class="search">
+    <form method="get">
+    <input type="text" name="q" placeholder="Search">
+    <button type="submit">search by username or keyword!</button>
+    </form>
     </div>
 
     <?php if (isset($_SESSION['username'])): ?>
