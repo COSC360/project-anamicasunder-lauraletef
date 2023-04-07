@@ -91,11 +91,11 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 /* Set the position of the search bar */
 .search {
-  position: relative;
+  /* position: relative; */
   display: flex;
   top: 0;
   left: 0;
-  width: 25%;
+  width: 50%;
   background-color: #FFFCF7;
   padding: 10px; 
   justify-content: center;
