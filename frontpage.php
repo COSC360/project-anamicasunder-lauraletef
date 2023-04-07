@@ -44,6 +44,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['username'])) {
 // $stmt->execute();
 // $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
+// Display the search form
+echo '<form method="get">';
+echo '<input type="text" name="q" placeholder="Search">';
+echo '<button type="submit">Search</button>';
+echo '</form>';
+
+
 $dbh = new PDO('mysql:host=localhost; dbname=db_24466963', '24466963', '24466963');
 
 // Check if a search query has been submitted
@@ -55,25 +63,14 @@ if (isset($_GET['q'])) {
   $stmt->execute(["%$q%", "%$q%"]);
 } else {
   // If no search query has been submitted, display all posts
-  $stmt = $dbh->prepare('SELECT postID, username, textvalue FROM posts JOIN users ON posts.userID = users.userID ORDER BY postID DESC');
-  $stmt->execute();
+ // Display blog posts
+$dbh = new PDO('mysql:host=localhost; dbname=db_24466963', '24466963', '24466963');
+$stmt = $dbh->prepare('SELECT postID, username, textvalue FROM posts JOIN users ON posts.userID = users.userID ORDER BY postID DESC');
+$stmt->execute();
+$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// Display the posts
-foreach ($posts as $post) {
-  echo '<div>';
-  echo '<h3>' . $post['username'] . '</h3>';
-  echo '<p>' . $post['textvalue'] . '</p>';
-  echo '</div>';
-}
-
-// Display the search form
-echo '<form method="get">';
-echo '<input type="text" name="q" placeholder="Search">';
-echo '<button type="submit">Search</button>';
-echo '</form>';
 
 ?>
 
