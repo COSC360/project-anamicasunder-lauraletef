@@ -94,9 +94,10 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
   position: relative;
   top: 0;
   left: 0;
-  width: 50%;
-  background-color: #FFFCF7; /* Optional: Change the background color */
-  padding: 5px; /* Optional: Add some padding */
+  float: right;
+  width: 25%;
+  background-color: #FFFCF7;
+  padding: 10px; 
 }
 
 /* Style the input field */
@@ -105,6 +106,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
   border-radius: 5px;
   width: 50%;
   font-size: 16px;
+  margin-top: 2em;
 }
 
 
@@ -255,8 +257,8 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="search">
     <form method="get">
-    <input type="text" name="q" placeholder="Search">
-    <button type="submit">search by username or keyword!</button>
+    <input type="text" name="q" placeholder="username or keyword">
+    <button type="submit">search!</button>
     </form>
     </div>
 
