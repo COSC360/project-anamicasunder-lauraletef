@@ -38,15 +38,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['username'])) {
     }
 }
 
-// // Display blog posts
-// $dbh = new PDO('mysql:host=localhost; dbname=db_24466963', '24466963', '24466963');
-// $stmt = $dbh->prepare('SELECT postID, username, textvalue FROM posts JOIN users ON posts.userID = users.userID ORDER BY postID DESC');
-// $stmt->execute();
-// $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// Display blog posts
+$dbh = new PDO('mysql:host=localhost; dbname=db_24466963', '24466963', '24466963');
+$stmt = $dbh->prepare('SELECT postID, username, textvalue FROM posts JOIN users ON posts.userID = users.userID ORDER BY postID DESC');
+$stmt->execute();
+$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 // Display the search form
-echo '<form method="get">';
+echo '<form method="get" class = "search">';
 echo '<input type="text" name="q" placeholder="Search">';
 echo '<button type="submit">Search</button>';
 echo '</form>';
@@ -146,6 +146,17 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         align-items: center;
         margin-top: 1em;
 
+    }
+
+    .search{
+        display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1em;
+    background-color: #FFFFFF;
+    border: 0.7em solid #E4F0D0;
+    border-radius: 30px;
+    padding: 2em;
     }
 
     textarea {
