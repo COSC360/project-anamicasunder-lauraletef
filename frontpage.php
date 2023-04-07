@@ -100,13 +100,14 @@ if (isset($_GET['q'])) {
 
 /* Style the input field */
 .search input[type="text"] {
-  border: 0.7em solid #E4F0D0;
-  border-radius: 5px;
+  border: 0.3em solid #E4F0D0;
+  border-radius: 20px;
   width: 100%;
   font-size: 16px;
-  margin-top: 2em;
+  margin-top: 0.2em;
   justify-content: center;
     align-items: center;
+    text-align: center
     padding: 10px;
 }
 
