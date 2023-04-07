@@ -51,6 +51,10 @@ $dbh = new PDO('mysql:host=localhost; dbname=db_24466963', '24466963', '24466963
 // Check if a search query has been submitted
 if (isset($_GET['q'])) {
   $q = $_GET['q'];
+  $dbh = new PDO('mysql:host=localhost; dbname=db_24466963', '24466963', '24466963');
+$stmt = $dbh->prepare('SELECT postID, username, textvalue FROM posts JOIN users ON posts.userID = users.userID ORDER BY postID DESC');
+$stmt->execute();
+$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   // Search for posts that contain the keyword in the post text or the username
   $stmt = $dbh->prepare('SELECT postID, username, textvalue FROM posts JOIN users ON posts.userID = users.userID WHERE textvalue LIKE ? OR username LIKE ? ORDER BY postID DESC');
@@ -64,7 +68,6 @@ $stmt->execute();
 $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
