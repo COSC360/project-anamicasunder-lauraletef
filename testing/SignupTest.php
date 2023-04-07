@@ -6,7 +6,7 @@ class SignupTest extends TestCase
 {
     public function testValidSignup()
     {
-        // Mock POST data
+       
         $_POST = [
             'firstname' => 'John',
             'lastname' => 'Doe',
@@ -15,7 +15,7 @@ class SignupTest extends TestCase
             'password' => 'password'
         ];
 
-        // Mock file upload data
+       
         $_FILES = [
             'userImage' => [
                 'name' => 'test.jpg',
@@ -25,12 +25,10 @@ class SignupTest extends TestCase
             ]
         ];
 
-        // Mock database connection
         $connection = $this->getMockBuilder(mysqli::class)
             ->setConstructorArgs(["localhost", "24466963", "24466963", "db_24466963"])
             ->getMock();
 
-        // Mock mysqli_prepare and mysqli_stmt_execute functions
         $stmt = $this->getMockBuilder(mysqli_stmt::class)
             ->setMethods(['bind_param', 'send_long_data', 'execute'])
             ->getMock();
@@ -47,12 +45,10 @@ class SignupTest extends TestCase
             ->method('execute')
             ->willReturn(true);
 
-        // Mock mysqli_insert_id function
         $connection->expects($this->once())
             ->method('insert_id')
             ->willReturn(123);
 
-        // Mock mysqli_prepare and mysqli_stmt_execute functions for SELECT query
         $select_stmt = $this->getMockBuilder(mysqli_stmt::class)
             ->setMethods(['bind_param', 'execute', 'get_result'])
             ->getMock();
@@ -74,7 +70,6 @@ class SignupTest extends TestCase
                 }
             });
 
-        // Mock mysqli_prepare and mysqli_stmt_execute functions for INSERT query
         $insert_stmt = $this->getMockBuilder(mysqli_stmt::class)
             ->setMethods(['bind_param', 'execute'])
             ->getMock();
@@ -87,7 +82,6 @@ class SignupTest extends TestCase
             ->method('execute')
             ->willReturn(true);
 
-        // Mock mysqli_prepare function for INSERT query for userImages table
         $user_images_stmt = $this->getMockBuilder(mysqli_stmt::class)
             ->setMethods(['bind_param', 'send_long_data','execute'])
             ->getMock();
@@ -103,8 +97,7 @@ class SignupTest extends TestCase
         $user_images_stmt->expects($this->once())
             ->method('execute')
             ->willReturn(true);
-    
-        // Mock mysqli_prepare function for SELECT query for userImages table
+
         $select_image_stmt = $this->getMockBuilder(mysqli_stmt::class)
             ->setMethods(['bind_param', 'execute', 'get_result'])
             ->getMock();
@@ -125,8 +118,7 @@ class SignupTest extends TestCase
                     return [                    'image_id' => 456,                    'user_id' => 123,                    'filename' => 'test.jpg',                    'mime_type' => 'image/jpeg',                    'file_size' => 50000,                    'created_at' => '2022-04-06 12:00:00',                    'updated_at' => '2022-04-06 12:00:00'                ];
                 }
             });
-    
-        // Mock mysqli_prepare function for UPDATE query for users table
+
         $update_stmt = $this->getMockBuilder(mysqli_stmt::class)
             ->setMethods(['bind_param', 'execute'])
             ->getMock();
@@ -139,20 +131,17 @@ class SignupTest extends TestCase
             ->method('execute')
             ->willReturn(true);
 
-        // Call the function that we want to test
 $result = updateUserImage($this->mysqli, 123, '/tmp/phpABC123', 'test.jpg', 'image/jpeg', 50000);
 
-// Assert that the function returns true
 $this->assertTrue($result);
 
-// Assert that all expected methods were called on the prepared statements
 $this->assertMockObjectsHaveBeenVerified();
 
         }
 
         public function testUpdateUserImageUserHasNoImage()
 {
-// Mock mysqli_prepare function for SELECT query for userImages table
+
 $select_image_stmt = $this->getMockBuilder(mysqli_stmt::class)
 ->setMethods(['bind_param', 'execute', 'get_result'])
 ->getMock();
@@ -165,16 +154,16 @@ $select_image_stmt->expects($this->once())
 $select_image_stmt->expects($this->once())
 ->method('get_result')
 ->willReturn(false);
-// Call the function that we want to test
+
 $result = updateUserImage($this->mysqli, 123, '/tmp/phpABC123', 'test.jpg', 'image/jpeg', 50000);
-// Assert that the function returns false
+
 $this->assertFalse($result);
 }
 
 
 public function testUpdateUserImageErrorUpdatingImage()
 {
-// Mock mysqli_prepare function for INSERT query for userImages table
+
 $user_images_stmt = $this->getMockBuilder(mysqli_stmt::class)
 ->setMethods(['bind_param', 'send_long_data', 'execute'])
 ->getMock();
@@ -187,9 +176,9 @@ $user_images_stmt->expects($this->once())
 $user_images_stmt->expects($this->once())
 ->method('execute')
 ->willReturn(false);
-// Call the function that we want to test
+
 $result = updateUserImage($this->mysqli, 123, '/tmp/phpABC123', 'test.jpg', 'image/jpeg', 50000);
-// Assert that the function returns false
+
 $this->assertFalse($result);
 }
 
