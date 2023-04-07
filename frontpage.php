@@ -92,6 +92,9 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         margin-left: 0.2em;
   
     }
+    .header {
+    position: relative;
+    }
 
     .search {
     margin-top: 1em;
@@ -99,7 +102,13 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
 }
+
 
 .search input[type="text"] {
     padding: 0.5em;
