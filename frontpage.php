@@ -107,7 +107,7 @@ if (isset($_GET['q'])) {
   margin-top: 0.2em;
   justify-content: center;
     align-items: center;
-    text-align: center
+    text-align: center;
     padding: 10px;
 }
 
