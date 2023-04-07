@@ -259,6 +259,12 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>  
     </div>
 
+    <div class="search">
+    <form method="get">
+    <input type="text" name="q" placeholder="username or keyword">
+    <button type="submit">search!</button>
+    </form>
+    </div>
   
 
     <?php if (isset($_SESSION['username'])): ?>
@@ -270,12 +276,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php endif; ?>
 
     <h2>recent posts</h2>
-    <div class="search">
-    <form method="get">
-    <input type="text" name="q" placeholder="username or keyword">
-    <button type="submit">search!</button>
-    </form>
-    </div>
+   
     <?php foreach ($posts as $post): ?>
     <div class="post-container">
         <div>
